@@ -13,4 +13,9 @@ enum Constants {
     enum Interface {
         static let alertCloseButtonTitle = "OK"
     }
+
+    enum Identifier {
+        static let sentCell = "Sent Cell"
+        static let scheduledCell = "Scheduled Cell"
+    }
 }

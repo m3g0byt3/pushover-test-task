@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ComposeViewController.swift
 //  PushoverSender
 //
 //  Created by m3g0byt3 on 01/09/2018.
@@ -9,4 +9,4 @@
 import Foundation
 import UIKit
 
-class ViewController: UIViewController {}
+class ComposeViewController: UIViewController {}
