@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ComposeViewController: UIViewController, Presentable {}
+final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - Public properties
 

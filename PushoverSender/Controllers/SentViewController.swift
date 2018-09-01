@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SentViewController: UIViewController, Presentable {
+final class SentViewController: UIViewController, Presentable {
 
     // MARK: - IBoutlets
 
