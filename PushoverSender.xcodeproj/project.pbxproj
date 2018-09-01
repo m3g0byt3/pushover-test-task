@@ -14,9 +14,11 @@
 		41164D2A213ABED400A2548E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D29213ABED400A2548E /* R.generated.swift */; };
 		41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */; };
 		41692D17213ACF2600752765 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D16213ACF2600752765 /* Message.swift */; };
-		41692D19213AD0D600752765 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D18213AD0D600752765 /* Response.swift */; };
 		41692D1B213AD26200752765 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1A213AD26200752765 /* Recipient.swift */; };
 		41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1C213AFA2300752765 /* PushoverAPI.swift */; };
+		41692D21213B1E0500752765 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D20213B1E0500752765 /* MessageResponse.swift */; };
+		41692D25213B1E2200752765 /* VerificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D24213B1E2200752765 /* VerificationResponse.swift */; };
+		41692D29213B1FEA00752765 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D28213B1FEA00752765 /* ErrorResponse.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
 		41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD8213A97B900EF6EFA /* Assets.xcassets */; };
@@ -41,9 +43,11 @@
 		41164D29213ABED400A2548E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverNetworkService.swift; sourceTree = "<group>"; };
 		41692D16213ACF2600752765 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		41692D18213AD0D600752765 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		41692D1A213AD26200752765 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		41692D1C213AFA2300752765 /* PushoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverAPI.swift; sourceTree = "<group>"; };
+		41692D20213B1E0500752765 /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
+		41692D24213B1E2200752765 /* VerificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationResponse.swift; sourceTree = "<group>"; };
+		41692D28213B1FEA00752765 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41BC6DD3213A97B800EF6EFA /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +131,9 @@
 			children = (
 				41692D1A213AD26200752765 /* Recipient.swift */,
 				41692D16213ACF2600752765 /* Message.swift */,
-				41692D18213AD0D600752765 /* Response.swift */,
+				41692D20213B1E0500752765 /* MessageResponse.swift */,
+				41692D24213B1E2200752765 /* VerificationResponse.swift */,
+				41692D28213B1FEA00752765 /* ErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,22 +362,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41692D21213B1E0500752765 /* MessageResponse.swift in Sources */,
 				41164D27213AB91C00A2548E /* Configurator.swift in Sources */,
 				41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
 				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,
+				41692D29213B1FEA00752765 /* ErrorResponse.swift in Sources */,
 				41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */,
 				41692D1B213AD26200752765 /* Recipient.swift in Sources */,
 				41164D2A213ABED400A2548E /* R.generated.swift in Sources */,
 				41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */,
-				41692D19213AD0D600752765 /* Response.swift in Sources */,
 				41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */,
 				41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */,
 				41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */,
 				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
 				41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
+				41692D25213B1E2200752765 /* VerificationResponse.swift in Sources */,
 				41BC6E01213AAE5D00EF6EFA /* Presentable.swift in Sources */,
 				41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */,
 			);
