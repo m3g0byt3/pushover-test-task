@@ -38,7 +38,7 @@ final class SentViewController: UIViewController, Presentable {
         navigationItem.rightBarButtonItem = composeButton
     }
 
-    // MARK: - Control hanlers
+    // MARK: - Control handlers
 
     @objc private func composeButtonHandler(_ sender: UIBarButtonItem) {
         let scene = configurator?.getScene(.compose(sender))

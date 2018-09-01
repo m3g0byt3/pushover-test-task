@@ -31,6 +31,7 @@ enum AppAssembly: Assembly {
             sentViewController.tabBarItem = UITabBarItem(title: Constants.Interface.sentTitle,
                                                          image: R.image.sent(),
                                                          selectedImage: nil)
+            
             scheduledViewController.tabBarItem = UITabBarItem(title: Constants.Interface.scheduledTitle,
                                                               image: R.image.scheduled(),
                                                               selectedImage: nil)
