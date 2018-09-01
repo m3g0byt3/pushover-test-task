@@ -25,6 +25,9 @@ final class ScheduledViewController: UIViewController, Presentable {
     // MARK: - Private API
 
     private func setupUI() {
+        if #available(iOS 11, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.scheduledCell)
         let selector = #selector(editButtonHandler(_:))
         let sentButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: selector)

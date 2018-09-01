@@ -29,6 +29,9 @@ final class SentViewController: UIViewController, Presentable {
     // MARK: - Private API
 
     private func setupUI() {
+        if #available(iOS 11, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.sentCell)
         let selector = #selector(composeButtonHandler(_:))
         let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: selector)
