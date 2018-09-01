@@ -20,6 +20,7 @@
 		41692D21213B1E0500752765 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D20213B1E0500752765 /* MessageResponse.swift */; };
 		41692D25213B1E2200752765 /* VerificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D24213B1E2200752765 /* VerificationResponse.swift */; };
 		41692D29213B1FEA00752765 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D28213B1FEA00752765 /* ErrorResponse.swift */; };
+		41692D2B213B331900752765 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D2A213B331900752765 /* Array+Extensions.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
 		41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD8213A97B900EF6EFA /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		41692D20213B1E0500752765 /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
 		41692D24213B1E2200752765 /* VerificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationResponse.swift; sourceTree = "<group>"; };
 		41692D28213B1FEA00752765 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		41692D2A213B331900752765 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41BC6DD3213A97B800EF6EFA /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				41BC6DEE213AA39D00EF6EFA /* UIViewController+Extensions.swift */,
+				41692D2A213B331900752765 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				41692D21213B1E0500752765 /* MessageResponse.swift in Sources */,
 				41164D27213AB91C00A2548E /* Configurator.swift in Sources */,
 				41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */,
+				41692D2B213B331900752765 /* Array+Extensions.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
 				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,

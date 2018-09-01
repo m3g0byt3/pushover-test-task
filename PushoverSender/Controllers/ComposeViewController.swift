@@ -13,9 +13,28 @@ final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - IBoutlets
 
-    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var recipientTextField: UITextField!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var messageTextView: UITextView!
     @IBOutlet private weak var scheduleSwitch: UISwitch!
     @IBOutlet private weak var scheduleLabel: UILabel!
+
+    // MARK: - Private properties
+
+    private var firstResponders: [UIResponder] {
+        return [recipientTextField, titleTextField, messageTextView]
+    }
+
+    private var message: Message? {
+        guard
+            let key = recipientTextField.text,
+            let title = titleTextField.text,
+            let message = messageTextView.text
+        else { return nil }
+        return Message(recipient: Recipient(key: key, device: nil),
+                       title: title,
+                       message: message)
+    }
 
     // MARK: - Public properties
 
@@ -48,6 +67,7 @@ final class ComposeViewController: UIViewController, Presentable {
         let sendSelector = #selector(sendButtonHandler(_:))
         let cancelSelector = #selector(cancelButtonHandler(_:))
         let scheduleSelector = #selector(scheduleSwitchHandler(_:))
+        // TODO: Disable send button when no valid input provided
         let sendButton = UIBarButtonItem(image: R.image.sent(),
                                          style: .plain,
                                          target: self,
@@ -58,10 +78,10 @@ final class ComposeViewController: UIViewController, Presentable {
         scheduleSwitch.addTarget(self, action: scheduleSelector, for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
-        // TODO: Placeholder for text view
-        textView.layer.borderWidth = Constants.Interface.borderWidth
-        textView.layer.cornerRadius = Constants.Interface.cornerRadius
-        textView.layer.borderColor = Constants.Interface.borderColor.cgColor
+        // TODO: Add placeholder for text view
+        messageTextView.layer.borderWidth = Constants.Interface.borderWidth
+        messageTextView.layer.cornerRadius = Constants.Interface.cornerRadius
+        messageTextView.layer.borderColor = Constants.Interface.borderColor.cgColor
     }
 
     private func calculatePreferredContentSize() -> CGSize {
@@ -74,7 +94,19 @@ final class ComposeViewController: UIViewController, Presentable {
     // MARK: - Control handlers
 
     @objc private func sendButtonHandler(_ sender: UIBarButtonItem) {
-        fatalError("Not implemented yet")
+        guard let message = message else { return }
+        networkService.send(message: message) { [weak self] result in
+            switch result {
+            case .success(let response):
+                let parentViewController = self?.navigationController?.presentingViewController
+                self?.navigationController?.dismiss(animated: true)
+                parentViewController?.presentAlert(title: "Done",
+                                                   message: "Message sent successfully with token: \(response.request)")
+            case .failure(let error):
+                self?.presentAlert(title: "Error",
+                                   message: "Unable to send message due to error: \(error.localizedDescription)")
+            }
+        }
     }
 
     @objc private func cancelButtonHandler(_ sender: UIBarButtonItem) {
@@ -92,5 +124,17 @@ extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
 
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+}
+
+// MARK: - UITextFieldDelegate protocol conformace
+
+extension ComposeViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let index = firstResponders.index(of: textField) {
+            firstResponders[safeAfter: index]?.becomeFirstResponder()
+        }
+        return true
     }
 }
