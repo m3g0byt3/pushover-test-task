@@ -126,3 +126,15 @@ extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
         return .none
     }
 }
+
+// MARK: - UITextFieldDelegate protocol conformace
+
+extension ComposeViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let index = firstResponders.index(of: textField) {
+            firstResponders[safeAfter: index]?.becomeFirstResponder()
+        }
+        return true
+    }
+}
