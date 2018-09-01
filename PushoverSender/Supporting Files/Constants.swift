@@ -27,4 +27,10 @@ enum Constants {
         static let sentCell = "Sent Cell"
         static let scheduledCell = "Scheduled Cell"
     }
+
+    enum Network {
+        static let apiToken = "af33c32b5wpe4aiusfx8eydu6e7ah5"
+        static let baseURLHost = "api.pushover.net"
+        static let baseURLScheme = "https"
+    }
 }

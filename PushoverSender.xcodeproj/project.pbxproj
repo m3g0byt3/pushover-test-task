@@ -16,6 +16,7 @@
 		41692D17213ACF2600752765 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D16213ACF2600752765 /* Message.swift */; };
 		41692D19213AD0D600752765 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D18213AD0D600752765 /* Response.swift */; };
 		41692D1B213AD26200752765 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1A213AD26200752765 /* Recipient.swift */; };
+		41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1C213AFA2300752765 /* PushoverAPI.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
 		41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD8213A97B900EF6EFA /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		41692D16213ACF2600752765 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		41692D18213AD0D600752765 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		41692D1A213AD26200752765 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
+		41692D1C213AFA2300752765 /* PushoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverAPI.swift; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41BC6DD3213A97B800EF6EFA /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		41BC6DE8213A987C00EF6EFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				41692D1C213AFA2300752765 /* PushoverAPI.swift */,
 				41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */,
 			);
 			path = Services;
@@ -365,6 +368,7 @@
 				41692D19213AD0D600752765 /* Response.swift in Sources */,
 				41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */,
 				41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */,
+				41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */,
 				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
 				41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
