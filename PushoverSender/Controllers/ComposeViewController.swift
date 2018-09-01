@@ -58,6 +58,10 @@ final class ComposeViewController: UIViewController, Presentable {
         scheduleSwitch.addTarget(self, action: scheduleSelector, for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
+        // TODO: Placeholder for text view
+        textView.layer.borderWidth = Constants.Interface.borderWidth
+        textView.layer.cornerRadius = Constants.Interface.cornerRadius
+        textView.layer.borderColor = Constants.Interface.borderColor.cgColor
     }
 
     private func calculatePreferredContentSize() -> CGSize {
