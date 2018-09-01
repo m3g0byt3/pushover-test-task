@@ -31,6 +31,7 @@ enum AppAssembly: Assembly {
             sentViewController.tabBarItem = UITabBarItem(title: Constants.Interface.sentTitle,
                                                          image: R.image.sent(),
                                                          selectedImage: nil)
+            
             scheduledViewController.tabBarItem = UITabBarItem(title: Constants.Interface.scheduledTitle,
                                                               image: R.image.scheduled(),
                                                               selectedImage: nil)
@@ -42,13 +43,14 @@ enum AppAssembly: Assembly {
 
         case .compose(let barButtonItem):
             let composeViewController = ComposeViewController.fromNib()
+            let navigationController = UINavigationController(rootViewController: composeViewController)
 
             composeViewController.networkService = networkService
-            composeViewController.modalPresentationStyle = .popover
-            composeViewController.popoverPresentationController?.barButtonItem = barButtonItem
-            composeViewController.presentationController?.delegate = composeViewController
+            navigationController.modalPresentationStyle = .popover
+            navigationController.popoverPresentationController?.barButtonItem = barButtonItem
+            navigationController.presentationController?.delegate = composeViewController
 
-            return composeViewController
+            return navigationController
         }
     }
 

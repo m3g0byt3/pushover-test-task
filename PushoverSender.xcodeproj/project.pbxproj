@@ -110,9 +110,9 @@
 		41BC6DE3213A980300EF6EFA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				41164D29213ABED400A2548E /* R.generated.swift */,
 				41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */,
 				41BC6DF0213AA3CA00EF6EFA /* Constants.swift */,
+				41164D29213ABED400A2548E /* R.generated.swift */,
 				41BC6DE9213A98D200EF6EFA /* LaunchScreen.storyboard */,
 				41BC6DD8213A97B900EF6EFA /* Assets.xcassets */,
 				41BC6DDD213A97B900EF6EFA /* Info.plist */,

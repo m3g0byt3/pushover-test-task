@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Constants {
 
@@ -14,6 +15,12 @@ enum Constants {
         static let alertCloseButtonTitle = "OK"
         static let sentTitle = "Sent"
         static let scheduledTitle = "Scheduled"
+        static let borderWidth: CGFloat = 1.0
+        static let cornerRadius: CGFloat = 5.0
+        static let borderColor = UIColor(displayP3Red: 233.0 / 255.0,
+                                         green: 233.0 / 255.0,
+                                         blue: 233.0 / 255.0,
+                                         alpha: 1.0)
     }
 
     enum Identifier {
