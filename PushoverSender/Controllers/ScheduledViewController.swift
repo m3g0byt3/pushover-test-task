@@ -30,8 +30,8 @@ final class ScheduledViewController: UIViewController, Presentable {
         }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.scheduledCell)
         let selector = #selector(editButtonHandler(_:))
-        let sentButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: selector)
-        navigationItem.rightBarButtonItem = sentButton
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: selector)
+        navigationItem.rightBarButtonItem = editButton
     }
 
     // MARK: - Control hanlers

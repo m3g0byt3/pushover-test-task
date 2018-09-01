@@ -7,5 +7,28 @@
 //
 
 import Foundation
+import Result
 
-protocol NetworkService {}
+typealias NetworkService = MessagingService & VerificationService
+
+protocol MessagingService {
+
+    // MARK: - Typealiases
+
+    typealias Completion = (Result<MessageResponse, AnyError>) -> Void
+
+    // MARK: - Protocol requirements
+
+    func send(message: Message, completion: @escaping Completion)
+}
+
+protocol VerificationService {
+
+    // MARK: - Typealiases
+
+    typealias Completion = (Result<VerificationResponse, AnyError>) -> Void
+
+    // MARK: - Protocol requirements
+
+    func verify(recipient: Recipient, completion: @escaping Completion)
+}
