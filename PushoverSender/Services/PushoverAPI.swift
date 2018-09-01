@@ -70,6 +70,6 @@ enum PushoverAPI: TargetType {
     }
 
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        return ["Content-Type": "application/x-www-form-urlencoded"]
     }
 }
