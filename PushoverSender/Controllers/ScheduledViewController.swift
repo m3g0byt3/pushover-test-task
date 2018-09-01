@@ -41,7 +41,7 @@ final class ScheduledViewController: UIViewController, Presentable {
     }
 }
 
-// MARK: UITableViewDataSource protocol conformace
+// MARK: - UITableViewDataSource protocol conformace
 
 extension ScheduledViewController: UITableViewDataSource {
 

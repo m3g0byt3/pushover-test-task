@@ -14,6 +14,8 @@ enum AppAssembly: Assembly {
     case main(Configurator<AppAssembly>?)
     case compose(UIBarButtonItem)
 
+    // MARK: - Assembly protocol conformace
+
     var scene: Presentable {
         switch self {
 

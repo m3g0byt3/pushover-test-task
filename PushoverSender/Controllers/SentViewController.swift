@@ -15,7 +15,7 @@ final class SentViewController: UIViewController, Presentable {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    // MARK: - Private properties
+    // MARK: - Public properties
 
     var configurator: Configurator<AppAssembly>?
 
@@ -47,7 +47,7 @@ final class SentViewController: UIViewController, Presentable {
     }
 }
 
-// MARK: UITableViewDataSource protocol conformace
+// MARK: - UITableViewDataSource protocol conformace
 
 extension SentViewController: UITableViewDataSource {
 
