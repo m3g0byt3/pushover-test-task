@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Moya
 
 enum AppAssembly: Assembly {
 
@@ -31,7 +32,7 @@ enum AppAssembly: Assembly {
             sentViewController.tabBarItem = UITabBarItem(title: Constants.Interface.sentTitle,
                                                          image: R.image.sent(),
                                                          selectedImage: nil)
-            
+
             scheduledViewController.tabBarItem = UITabBarItem(title: Constants.Interface.scheduledTitle,
                                                               image: R.image.scheduled(),
                                                               selectedImage: nil)
@@ -56,12 +57,38 @@ enum AppAssembly: Assembly {
 
     var networkService: NetworkService {
         switch self {
-        case .main: fatalError("No `networkService` dependency available for case `.main`.")
-        case .compose: return PushoverNetworkService()
+        case .main:
+            fatalError("No `networkService` dependency available for `main` target.")
+        case .compose:
+            let provider = MoyaProvider<PushoverAPI>(callbackQueue: callbackQueue,
+                                                     plugins: [plugin],
+                                                     trackInflights: true)
+            return PushoverNetworkService(provider: provider)
         }
     }
 
     var databaseService: DatabaseService {
         fatalError("Not implemented yet")
+    }
+
+    private var callbackQueue: DispatchQueue {
+        switch self {
+        case .main: fatalError("No `callbackQueue` dependency available for `main` target.")
+        case .compose: return DispatchQueue.global(qos: .userInitiated)
+        }
+    }
+
+    private var plugin: PluginType {
+        switch self {
+        case .main:
+            fatalError("No `plugin` dependency available for `main` target.")
+        case .compose:
+            return NetworkActivityPlugin { change, _ in
+                let isIndicatorVisible = change == .began
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = isIndicatorVisible
+                }
+            }
+        }
     }
 }

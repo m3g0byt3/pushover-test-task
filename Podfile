@@ -7,5 +7,6 @@ target 'PushoverSender' do
 
   # Pods for PushoverSender
   pod 'R.swift'
+  pod 'Moya'
 
 end
