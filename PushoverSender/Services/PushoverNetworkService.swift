@@ -50,12 +50,12 @@ final class PushoverNetworkService: NetworkService {
                     // Map successful response
                     case 200:
                         let messageResponse = try filteredResponse.map(T.self)
-                        completion(.success(messageResponse))
+                        DispatchQueue.main.async { completion(.success(messageResponse)) }
                     // Map unsuccessful response and wrap it to the error
                     default:
                         let errorResponse = try filteredResponse.map(ErrorResponse.self)
                         let wrappedError = AnyError(errorResponse.apiError)
-                        completion(.failure(wrappedError))
+                        DispatchQueue.main.async { completion(.failure(wrappedError)) }
                     }
                 } catch {
                     // Catch Moya errors (mapping, etc)
