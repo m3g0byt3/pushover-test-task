@@ -42,13 +42,14 @@ enum AppAssembly: Assembly {
 
         case .compose(let barButtonItem):
             let composeViewController = ComposeViewController.fromNib()
+            let navigationController = UINavigationController(rootViewController: composeViewController)
 
             composeViewController.networkService = networkService
-            composeViewController.modalPresentationStyle = .popover
-            composeViewController.popoverPresentationController?.barButtonItem = barButtonItem
-            composeViewController.presentationController?.delegate = composeViewController
+            navigationController.modalPresentationStyle = .popover
+            navigationController.popoverPresentationController?.barButtonItem = barButtonItem
+            navigationController.presentationController?.delegate = composeViewController
 
-            return composeViewController
+            return navigationController
         }
     }
 
