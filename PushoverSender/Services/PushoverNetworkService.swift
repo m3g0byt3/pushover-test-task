@@ -8,4 +8,13 @@
 
 import Foundation
 
-final class PushoverNetworkService: NetworkService {}
+final class PushoverNetworkService: NetworkService {
+
+    func send(message: Message, completion: NetworkService.Completion) {
+        fatalError("Not implemented yet")
+    }
+
+    func verify(recipient: Recipient, completion: NetworkService.Completion) {
+        fatalError("Not implemented yet")
+    }
+}
