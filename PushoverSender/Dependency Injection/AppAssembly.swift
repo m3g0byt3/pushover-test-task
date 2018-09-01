@@ -41,6 +41,7 @@ enum AppAssembly: Assembly {
         case .compose(let barButtonItem):
             let composeViewController = ComposeViewController.fromNib()
 
+            composeViewController.networkService = networkService
             composeViewController.modalPresentationStyle = .popover
             composeViewController.popoverPresentationController?.barButtonItem = barButtonItem
             composeViewController.presentationController?.delegate = composeViewController
@@ -50,7 +51,10 @@ enum AppAssembly: Assembly {
     }
 
     var networkService: NetworkService {
-        fatalError("Not implemented yet")
+        switch self {
+        case .main: fatalError("No `networkService` dependency available for case `.main`.")
+        case .compose: return PushoverNetworkService()
+        }
     }
 
     var databaseService: DatabaseService {

@@ -11,7 +11,14 @@ import UIKit
 
 class ComposeViewController: UIViewController, Presentable {}
 
-// MARK: UIAdaptivePresentationControllerDelegate protocol conformace
+    // MARK: - Public properties
+
+    /// Service to perform network requests.
+    var networkService: NetworkService!
+    // swiftlint:disable:previous implicitly_unwrapped_optional
+}
+
+// MARK: - UIAdaptivePresentationControllerDelegate protocol conformace
 
 extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
 

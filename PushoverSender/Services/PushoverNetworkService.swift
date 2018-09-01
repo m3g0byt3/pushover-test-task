@@ -1,5 +1,5 @@
 //
-//  MainScene.swift
+//  PushoverNetworkService.swift
 //  PushoverSender
 //
 //  Created by m3g0byt3 on 01/09/2018.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol MainScene {}
+final class PushoverNetworkService: NetworkService {}
