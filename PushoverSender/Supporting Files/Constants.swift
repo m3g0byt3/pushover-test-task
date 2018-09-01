@@ -12,6 +12,8 @@ enum Constants {
 
     enum Interface {
         static let alertCloseButtonTitle = "OK"
+        static let sentTitle = "Sent"
+        static let scheduledTitle = "Scheduled"
     }
 
     enum Identifier {

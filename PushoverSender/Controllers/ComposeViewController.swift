@@ -9,4 +9,4 @@
 import Foundation
 import UIKit
 
-class ComposeViewController: UIViewController {}
+class ComposeViewController: UIViewController, Presentable {}

@@ -26,13 +26,15 @@ class SentViewController: UIViewController {
 
     private func setupUI() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.sentCell)
+        let selector = #selector(sentButtonHandler(_:))
+        let sentButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: selector)
+        navigationItem.rightBarButtonItem = sentButton
     }
 
     // MARK: - Control hanlers
 
-    @IBAction private func sentButtonHandler(_ sender: UIBarButtonItem) {
-        let composeViewController = ComposeViewController.fromNib()
-        navigationController?.present(composeViewController, animated: true)
+    @objc private func sentButtonHandler(_ sender: UIBarButtonItem) {
+
     }
 }
 
