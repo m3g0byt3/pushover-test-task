@@ -11,19 +11,20 @@ import UIKit
 
 enum AppAssembly: Assembly {
 
-    case main
-    case compose
+    case main(Configurator<AppAssembly>?)
+    case compose(UIBarButtonItem)
 
     var scene: Presentable {
         switch self {
 
-        case .main:
+        case .main(let configurator):
             let sentViewController = SentViewController.fromNib()
             let scheduledViewController = ScheduledViewController.fromNib()
             let tabBarController = UITabBarController()
 
             sentViewController.navigationItem.title = Constants.Interface.sentTitle
             scheduledViewController.navigationItem.title = Constants.Interface.scheduledTitle
+            sentViewController.configurator = configurator
 
             sentViewController.tabBarItem = UITabBarItem(title: Constants.Interface.sentTitle,
                                                          image: R.image.sent(),
@@ -37,8 +38,14 @@ enum AppAssembly: Assembly {
 
             return tabBarController
 
-        case .compose:
-            return ComposeViewController.fromNib()
+        case .compose(let barButtonItem):
+            let composeViewController = ComposeViewController.fromNib()
+
+            composeViewController.modalPresentationStyle = .popover
+            composeViewController.popoverPresentationController?.barButtonItem = barButtonItem
+            composeViewController.presentationController?.delegate = composeViewController
+
+            return composeViewController
         }
     }
 

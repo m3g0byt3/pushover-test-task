@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 
-class SentViewController: UIViewController {
+class SentViewController: UIViewController, Presentable {
 
     // MARK: - IBoutlets
 
     @IBOutlet private weak var tableView: UITableView!
+
+    // MARK: - Private properties
+
+    var configurator: Configurator<AppAssembly>?
 
     // MARK: - Lifecycle
 
@@ -26,15 +30,17 @@ class SentViewController: UIViewController {
 
     private func setupUI() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.sentCell)
-        let selector = #selector(sentButtonHandler(_:))
-        let sentButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: selector)
-        navigationItem.rightBarButtonItem = sentButton
+        let selector = #selector(composeButtonHandler(_:))
+        let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: selector)
+        navigationItem.rightBarButtonItem = composeButton
     }
 
     // MARK: - Control hanlers
 
-    @objc private func sentButtonHandler(_ sender: UIBarButtonItem) {
-
+    @objc private func composeButtonHandler(_ sender: UIBarButtonItem) {
+        let scene = configurator?.getScene(.compose(sender))
+        guard let viewController = scene?.presentableEntity else { return }
+        navigationController?.present(viewController, animated: true)
     }
 }
 

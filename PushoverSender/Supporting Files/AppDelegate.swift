@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         configurator = Configurator<AppAssembly>()
 
-        let scene = configurator?.getScene(.main)
+        let scene = configurator?.getScene(.main(configurator))
 
         window?.rootViewController = scene?.presentableEntity
         window?.makeKeyAndVisible()

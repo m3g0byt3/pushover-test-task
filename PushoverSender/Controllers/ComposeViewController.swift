@@ -10,3 +10,12 @@ import Foundation
 import UIKit
 
 class ComposeViewController: UIViewController, Presentable {}
+
+// MARK: UIAdaptivePresentationControllerDelegate protocol conformace
+
+extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
