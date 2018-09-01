@@ -13,10 +13,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var configurator: Configurator<AppAssembly>?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
     ) -> Bool {
+        configure()
         return true
+    }
+
+    // Perform initial DI
+    private func configure() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        configurator = Configurator<AppAssembly>()
+
+        let scene = configurator?.getScene(.main(configurator))
+
+        window?.rootViewController = scene?.presentableEntity
+        window?.makeKeyAndVisible()
     }
 }

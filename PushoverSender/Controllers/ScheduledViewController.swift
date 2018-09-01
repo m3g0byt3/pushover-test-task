@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ScheduledViewController: UIViewController {
+class ScheduledViewController: UIViewController, Presentable {
 
     // MARK: - IBoutlets
 
@@ -26,6 +26,15 @@ class ScheduledViewController: UIViewController {
 
     private func setupUI() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.scheduledCell)
+        let selector = #selector(editButtonHandler(_:))
+        let sentButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: selector)
+        navigationItem.rightBarButtonItem = sentButton
+    }
+
+    // MARK: - Control hanlers
+
+    @objc private func editButtonHandler(_ sender: UIBarButtonItem) {
+
     }
 }
 

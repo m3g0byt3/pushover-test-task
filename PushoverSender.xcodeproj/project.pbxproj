@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36421C7B184ACDC3D1F525BE /* Pods_PushoverSender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */; };
+		41164D23213AB8A200A2548E /* SentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D22213AB8A200A2548E /* SentViewController.xib */; };
+		41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D24213AB8AF00A2548E /* ScheduledViewController.xib */; };
+		41164D27213AB91C00A2548E /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D26213AB91C00A2548E /* Configurator.swift */; };
+		41164D2A213ABED400A2548E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D29213ABED400A2548E /* R.generated.swift */; };
+		41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
-		41BC6DD7213A97B800EF6EFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD5213A97B800EF6EFA /* Main.storyboard */; };
 		41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD8213A97B900EF6EFA /* Assets.xcassets */; };
 		41BC6DEB213A98D200EF6EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DE9213A98D200EF6EFA /* LaunchScreen.storyboard */; };
 		41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DEE213AA39D00EF6EFA /* UIViewController+Extensions.swift */; };
@@ -17,13 +22,26 @@
 		41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */; };
 		41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */; };
 		41BC6DF7213AA4D400EF6EFA /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */; };
+		41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DFB213AADE900EF6EFA /* AppAssembly.swift */; };
+		41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DFE213AAE0900EF6EFA /* Assembly.swift */; };
+		41BC6E01213AAE5D00EF6EFA /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E00213AAE5D00EF6EFA /* Presentable.swift */; };
+		41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E02213AAEEE00EF6EFA /* NetworkService.swift */; };
+		41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E04213AAF0300EF6EFA /* DatabaseService.swift */; };
+		41BC6E07213AAFF900EF6EFA /* SentScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E06213AAFF900EF6EFA /* SentScene.swift */; };
+		41BC6E09213AB01700EF6EFA /* ScheduledScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E08213AB01700EF6EFA /* ScheduledScene.swift */; };
+		41BC6E0B213AB08F00EF6EFA /* ComposeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E0A213AB08F00EF6EFA /* ComposeScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01786F4A17AA3E7E9F8DE40A /* Pods-PushoverSender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.debug.xcconfig"; sourceTree = "<group>"; };
+		41164D22213AB8A200A2548E /* SentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentViewController.xib; sourceTree = "<group>"; };
+		41164D24213AB8AF00A2548E /* ScheduledViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduledViewController.xib; sourceTree = "<group>"; };
+		41164D26213AB91C00A2548E /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		41164D29213ABED400A2548E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverNetworkService.swift; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41BC6DD3213A97B800EF6EFA /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
-		41BC6DD6213A97B800EF6EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41BC6DD8213A97B900EF6EFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41BC6DDD213A97B900EF6EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41BC6DEA213A98D200EF6EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +50,16 @@
 		41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledViewController.swift; sourceTree = "<group>"; };
 		41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		41BC6DFB213AADE900EF6EFA /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
+		41BC6DFE213AAE0900EF6EFA /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		41BC6E00213AAE5D00EF6EFA /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		41BC6E02213AAEEE00EF6EFA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		41BC6E04213AAF0300EF6EFA /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		41BC6E06213AAFF900EF6EFA /* SentScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentScene.swift; sourceTree = "<group>"; };
+		41BC6E08213AB01700EF6EFA /* ScheduledScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledScene.swift; sourceTree = "<group>"; };
+		41BC6E0A213AB08F00EF6EFA /* ComposeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeScene.swift; sourceTree = "<group>"; };
+		69994152363480F94EDF4C07 /* Pods-PushoverSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.release.xcconfig"; sourceTree = "<group>"; };
+		A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushoverSender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36421C7B184ACDC3D1F525BE /* Pods_PushoverSender.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +79,8 @@
 			children = (
 				41BC6DD0213A97B800EF6EFA /* PushoverSender */,
 				41BC6DCF213A97B800EF6EFA /* Products */,
+				9A996BDF27F3B7B4F700D6B1 /* Pods */,
+				A3011DFCB55A3CF71758A1EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,12 +95,13 @@
 		41BC6DD0213A97B800EF6EFA /* PushoverSender */ = {
 			isa = PBXGroup;
 			children = (
+				41BC6DFA213AADD100EF6EFA /* Dependency Injection */,
 				41BC6DE5213A985500EF6EFA /* Models */,
 				41BC6DE6213A985A00EF6EFA /* Views */,
 				41BC6DE7213A986200EF6EFA /* Controllers */,
 				41BC6DE8213A987C00EF6EFA /* Services */,
+				41BC6DFD213AADFD00EF6EFA /* Protocols */,
 				41BC6DED213AA38000EF6EFA /* Extensions */,
-				41BC6DE4213A981E00EF6EFA /* Storyboards */,
 				41BC6DE3213A980300EF6EFA /* Supporting Files */,
 			);
 			path = PushoverSender;
@@ -78,21 +110,14 @@
 		41BC6DE3213A980300EF6EFA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41164D29213ABED400A2548E /* R.generated.swift */,
 				41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */,
 				41BC6DF0213AA3CA00EF6EFA /* Constants.swift */,
+				41BC6DE9213A98D200EF6EFA /* LaunchScreen.storyboard */,
 				41BC6DD8213A97B900EF6EFA /* Assets.xcassets */,
 				41BC6DDD213A97B900EF6EFA /* Info.plist */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		41BC6DE4213A981E00EF6EFA /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				41BC6DD5213A97B800EF6EFA /* Main.storyboard */,
-				41BC6DE9213A98D200EF6EFA /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		41BC6DE5213A985500EF6EFA /* Models */ = {
@@ -113,7 +138,9 @@
 			isa = PBXGroup;
 			children = (
 				41BC6DD3213A97B800EF6EFA /* SentViewController.swift */,
+				41164D22213AB8A200A2548E /* SentViewController.xib */,
 				41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */,
+				41164D24213AB8AF00A2548E /* ScheduledViewController.xib */,
 				41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */,
 				41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */,
 			);
@@ -123,6 +150,7 @@
 		41BC6DE8213A987C00EF6EFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -135,6 +163,46 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		41BC6DFA213AADD100EF6EFA /* Dependency Injection */ = {
+			isa = PBXGroup;
+			children = (
+				41BC6DFB213AADE900EF6EFA /* AppAssembly.swift */,
+				41164D26213AB91C00A2548E /* Configurator.swift */,
+			);
+			path = "Dependency Injection";
+			sourceTree = "<group>";
+		};
+		41BC6DFD213AADFD00EF6EFA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				41BC6DFE213AAE0900EF6EFA /* Assembly.swift */,
+				41BC6E00213AAE5D00EF6EFA /* Presentable.swift */,
+				41BC6E02213AAEEE00EF6EFA /* NetworkService.swift */,
+				41BC6E04213AAF0300EF6EFA /* DatabaseService.swift */,
+				41BC6E06213AAFF900EF6EFA /* SentScene.swift */,
+				41BC6E08213AB01700EF6EFA /* ScheduledScene.swift */,
+				41BC6E0A213AB08F00EF6EFA /* ComposeScene.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9A996BDF27F3B7B4F700D6B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01786F4A17AA3E7E9F8DE40A /* Pods-PushoverSender.debug.xcconfig */,
+				69994152363480F94EDF4C07 /* Pods-PushoverSender.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A3011DFCB55A3CF71758A1EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,10 +210,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41BC6DE0213A97B900EF6EFA /* Build configuration list for PBXNativeTarget "PushoverSender" */;
 			buildPhases = (
+				15484924E60758E0F9A6CB16 /* [CP] Check Pods Manifest.lock */,
 				41BC6DCA213A97B800EF6EFA /* Sources */,
 				41BC6DEC213A990D00EF6EFA /* Run SwiftLint for debug builds */,
+				41164D28213ABE8C00A2548E /* R.swift run script */,
 				41BC6DCB213A97B800EF6EFA /* Frameworks */,
 				41BC6DCC213A97B800EF6EFA /* Resources */,
+				9DC7941856A7E5A6B778754B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,9 +265,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */,
+				41164D23213AB8A200A2548E /* SentViewController.xib in Resources */,
 				41BC6DEB213A98D200EF6EFA /* LaunchScreen.storyboard in Resources */,
 				41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */,
-				41BC6DD7213A97B800EF6EFA /* Main.storyboard in Resources */,
 				41BC6DF7213AA4D400EF6EFA /* ComposeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +276,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15484924E60758E0F9A6CB16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PushoverSender-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41164D28213ABE8C00A2548E /* R.swift run script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "R.swift run script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
 		41BC6DEC213A990D00EF6EFA /* Run SwiftLint for debug builds */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +322,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint to lint!\"\n    fi\nfi\n";
 		};
+		9DC7941856A7E5A6B778754B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -225,26 +347,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41164D27213AB91C00A2548E /* Configurator.swift in Sources */,
+				41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
+				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
+				41BC6E09213AB01700EF6EFA /* ScheduledScene.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,
 				41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */,
+				41164D2A213ABED400A2548E /* R.generated.swift in Sources */,
 				41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */,
+				41BC6E07213AAFF900EF6EFA /* SentScene.swift in Sources */,
 				41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */,
+				41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */,
+				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
 				41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */,
+				41BC6E01213AAE5D00EF6EFA /* Presentable.swift in Sources */,
+				41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */,
+				41BC6E0B213AB08F00EF6EFA /* ComposeScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		41BC6DD5213A97B800EF6EFA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				41BC6DD6213A97B800EF6EFA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		41BC6DE9213A98D200EF6EFA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -372,6 +497,7 @@
 		};
 		41BC6DE1213A97B900EF6EFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01786F4A17AA3E7E9F8DE40A /* Pods-PushoverSender.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,6 +516,7 @@
 		};
 		41BC6DE2213A97B900EF6EFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69994152363480F94EDF4C07 /* Pods-PushoverSender.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
