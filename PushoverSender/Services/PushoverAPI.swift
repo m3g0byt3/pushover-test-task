@@ -50,7 +50,6 @@ enum PushoverAPI: TargetType {
         let parameters: [String: Any]
         switch self {
         case .send(let message):
-            // TODO: DO not include `device` header if nil.
             parameters = [
                 "token": Constants.Network.apiToken,
                 "user": message.recipient.key,
