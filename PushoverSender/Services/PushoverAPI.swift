@@ -42,7 +42,7 @@ enum PushoverAPI: TargetType {
     }
 
     var sampleData: Data {
-        // TODO: add stub data for testing
+        // TODO: Add stub data for testing
         return Data()
     }
 

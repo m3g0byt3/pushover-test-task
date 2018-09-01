@@ -75,6 +75,7 @@ final class ComposeViewController: UIViewController, Presentable {
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
                                            target: self,
                                            action: cancelSelector)
+
         scheduleSwitch.addTarget(self, action: scheduleSelector, for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
@@ -114,6 +115,7 @@ final class ComposeViewController: UIViewController, Presentable {
     }
 
     @objc private func scheduleSwitchHandler(_ sender: UISwitch) {
+        // TODO: Add actual implementation
         scheduleLabel.textColor = sender.isOn ? .black : .lightGray
     }
 }
