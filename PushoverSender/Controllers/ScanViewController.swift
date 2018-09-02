@@ -24,6 +24,13 @@ final class ScanViewController: UIViewController, Presentable {
         return this
     }(UIButton(type: .system))
 
+    private lazy var errorLabel: UILabel = { this in
+        this.textColor = .lightGray
+        this.numberOfLines = 0
+        this.textAlignment = .center
+        return this
+    }(UILabel())
+
     // MARK: - Public properties
 
     /// Service to perform QR code recognition.
@@ -79,6 +86,14 @@ final class ScanViewController: UIViewController, Presentable {
         view.setNeedsUpdateConstraints()
     }
 
+    private func handleError(_ error: Error) {
+        view.addSubview(errorLabel)
+        errorLabel.text = error.localizedDescription
+        errorLabel.snp.makeConstraints { maker in
+            maker.leading.trailing.centerY.equalToSuperview()
+        }
+    }
+
     @objc private func cancelButtonHandler(_ sender: UIButton) {
         dismiss(animated: true)
     }
@@ -89,7 +104,7 @@ final class ScanViewController: UIViewController, Presentable {
 extension ScanViewController: ScanServiceDelegate {
 
     func scanner(_ scanner: ScanService, didFailWith error: ScannerError) {
-        print(error)
+        handleError(error)
     }
 
     func scanner(_ scanner: ScanService, didSetupPreview layer: CALayer) {
