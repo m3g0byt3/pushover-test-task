@@ -11,6 +11,16 @@ import Foundation
 enum ScannerError: Error, LocalizedError {
 
     case noAccess
-    case unableToGetDevice
+    case noDevice
     case unknown
+
+    // MARK: - LocalizedError protocol conformance
+
+    var errorDescription: String? {
+        switch self {
+        case .noAccess: return "Allow access to the camera for QR code scanning."
+        case .noDevice: return "Unable to get camera device."
+        case .unknown: return "An unknown error occurred."
+        }
+    }
 }
