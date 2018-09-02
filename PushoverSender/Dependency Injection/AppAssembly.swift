@@ -43,7 +43,7 @@ enum AppAssembly: Assembly {
 
             return tabBarController
 
-        case .compose(let barButtonItem, let configurator):
+        case let .compose(barButtonItem, configurator):
             let composeViewController = ComposeViewController.fromNib()
             let navigationController = UINavigationController(rootViewController: composeViewController)
 

@@ -64,7 +64,7 @@ final class QRCodeScanner: NSObject, ScanService {
             let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back),
             let input = try? AVCaptureDeviceInput(device: device)
         else {
-            delegate?.scanner(self, didFailWith: .unableToGetDevice)
+            delegate?.scanner(self, didFailWith: .noDevice)
             return
         }
 
