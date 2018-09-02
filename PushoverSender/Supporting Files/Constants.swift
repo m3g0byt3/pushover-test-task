@@ -21,6 +21,13 @@ enum Constants {
                                          green: 233.0 / 255.0,
                                          blue: 233.0 / 255.0,
                                          alpha: 1.0)
+        static let placeholderColor = UIColor(displayP3Red: 205.0 / 255.0,
+                                              green: 205.0 / 255.0,
+                                              blue: 210.0 / 255.0,
+                                              alpha: 1.0)
+        static let xInset: CGFloat = 4.0
+        static let yInsetDivider: CGFloat = 2.0
+        static let animationDuration: TimeInterval = 0.3
     }
 
     enum Identifier {

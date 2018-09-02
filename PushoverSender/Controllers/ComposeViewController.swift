@@ -15,7 +15,7 @@ final class ComposeViewController: UIViewController, Presentable {
 
     @IBOutlet private weak var recipientTextField: UITextField!
     @IBOutlet private weak var titleTextField: UITextField!
-    @IBOutlet private weak var messageTextView: UITextView!
+    @IBOutlet private weak var messageTextView: MessageTextView!
     @IBOutlet private weak var scheduleSwitch: UISwitch!
     @IBOutlet private weak var scheduleLabel: UILabel!
 
@@ -79,10 +79,6 @@ final class ComposeViewController: UIViewController, Presentable {
         scheduleSwitch.addTarget(self, action: scheduleSelector, for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
-        // TODO: Add placeholder for text view
-        messageTextView.layer.borderWidth = Constants.Interface.borderWidth
-        messageTextView.layer.cornerRadius = Constants.Interface.cornerRadius
-        messageTextView.layer.borderColor = Constants.Interface.borderColor.cgColor
     }
 
     private func calculatePreferredContentSize() -> CGSize {
