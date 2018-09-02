@@ -22,7 +22,7 @@ final class PushoverNetworkService: NetworkService {
         self.provider = provider
     }
 
-    // MARK: - NetworkService protocol conformace
+    // MARK: - NetworkService protocol conformance
 
     func send(message: Message, completion: @escaping MessagingService.Completion) {
         let moyaCompletion = completionFactory(completion: completion)

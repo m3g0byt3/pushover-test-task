@@ -16,7 +16,7 @@ enum PushoverAPI: TargetType {
     case send(Message)
     case verify(Recipient)
 
-    // MARK: - TargetType protocol conformace
+    // MARK: - TargetType protocol conformance
 
     var baseURL: URL {
         var components = URLComponents()

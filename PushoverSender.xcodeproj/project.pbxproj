@@ -181,9 +181,7 @@
 		41BC6DE8213A987C00EF6EFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				41692D1C213AFA2300752765 /* PushoverAPI.swift */,
-				41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */,
-				41692D1E213B140900752765 /* PushoverError.swift */,
+				41C4C917213C2FD7002E3548 /* Network */,
 				41C4C918213C2FDE002E3548 /* QR Scanner */,
 			);
 			path = Services;
@@ -219,6 +217,16 @@
 				41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		41C4C917213C2FD7002E3548 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				41692D1C213AFA2300752765 /* PushoverAPI.swift */,
+				41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */,
+				41692D1E213B140900752765 /* PushoverError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		41C4C918213C2FDE002E3548 /* QR Scanner */ = {
