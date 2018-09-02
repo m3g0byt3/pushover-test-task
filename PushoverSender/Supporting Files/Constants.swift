@@ -11,6 +11,10 @@ import UIKit
 
 enum Constants {
 
+    // MARK: - Typealiases
+
+    typealias ScanCompletion = (String) -> Void
+
     enum Interface {
         static let alertCloseButtonTitle = "OK"
         static let sentTitle = "Sent"

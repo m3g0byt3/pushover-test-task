@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class ScanViewController: UIViewController {
+final class ScanViewController: UIViewController, Presentable {
 
     // MARK: - Private properties
 
@@ -29,6 +29,8 @@ final class ScanViewController: UIViewController {
     /// Service to perform QR code recognition.
     var scanService: ScanService!
     // swiftlint:disable:previous implicitly_unwrapped_optional
+
+    var completion: Constants.ScanCompletion?
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -97,6 +99,6 @@ extension ScanViewController: ScanServiceDelegate {
     }
 
     func scanner(_ scanner: ScanService, didRecognizedCode value: String) {
-        print(value)
+        completion?(value)
     }
 }

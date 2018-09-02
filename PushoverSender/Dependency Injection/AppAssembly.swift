@@ -14,6 +14,7 @@ enum AppAssembly: Assembly {
 
     case main(Configurator<AppAssembly>?)
     case compose(UIBarButtonItem)
+    case scan(Constants.ScanCompletion)
 
     // MARK: - Assembly protocol conformace
 
@@ -52,13 +53,21 @@ enum AppAssembly: Assembly {
             navigationController.presentationController?.delegate = composeViewController
 
             return navigationController
+
+        case .scan(let completion):
+            let scanViewController = ScanViewController()
+
+            scanViewController.scanService = QRCodeScanner()
+            scanViewController.completion = completion
+
+            return scanViewController
         }
     }
 
     var networkService: NetworkService {
         switch self {
-        case .main:
-            fatalError("No `networkService` dependency available for `main` target.")
+        case .main, .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
         case .compose:
             let provider = MoyaProvider<PushoverAPI>(callbackQueue: callbackQueue,
                                                      plugins: [plugin],
@@ -73,15 +82,17 @@ enum AppAssembly: Assembly {
 
     private var callbackQueue: DispatchQueue {
         switch self {
-        case .main: fatalError("No `callbackQueue` dependency available for `main` target.")
-        case .compose: return DispatchQueue.global(qos: .userInitiated)
+        case .main, .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
+        case .compose:
+            return DispatchQueue.global(qos: .userInitiated)
         }
     }
 
     private var plugin: PluginType {
         switch self {
-        case .main:
-            fatalError("No `plugin` dependency available for `main` target.")
+        case .main, .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
         case .compose:
             return NetworkActivityPlugin { change, _ in
                 let isIndicatorVisible = change == .began
