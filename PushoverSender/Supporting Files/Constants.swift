@@ -15,6 +15,8 @@ enum Constants {
 
     typealias ScanCompletion = (String) -> Void
 
+    // MARK: - Constants
+
     enum Interface {
         static let alertCloseButtonTitle = "OK"
         static let sentTitle = "Sent"

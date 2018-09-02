@@ -34,14 +34,14 @@ final class ScheduledViewController: UIViewController, Presentable {
         navigationItem.rightBarButtonItem = editButton
     }
 
-    // MARK: - Control hanlers
+    // MARK: - Control handlers
 
     @objc private func editButtonHandler(_ sender: UIBarButtonItem) {
 
     }
 }
 
-// MARK: - UITableViewDataSource protocol conformace
+// MARK: - UITableViewDataSource protocol conformance
 
 extension ScheduledViewController: UITableViewDataSource {
 

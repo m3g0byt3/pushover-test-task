@@ -92,7 +92,7 @@ final class QRCodeScanner: NSObject, ScanService {
     }
 }
 
-// MARK: - AVCaptureMetadataOutputObjectsDelegate protocol conformace
+// MARK: - AVCaptureMetadataOutputObjectsDelegate protocol conformance
 
 extension QRCodeScanner: AVCaptureMetadataOutputObjectsDelegate {
 

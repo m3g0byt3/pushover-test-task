@@ -125,6 +125,8 @@ final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - Control handlers
 
+    // TODO: Replace with single control handler
+
     @objc private func sendButtonHandler(_ sender: UIBarButtonItem) {
         guard let message = message else { return }
         performNetworkRequest(for: message)
@@ -146,10 +148,9 @@ final class ComposeViewController: UIViewController, Presentable {
     @objc private func scanButtonHandler(_ sender: UIBarButtonItem) {
         showScanner()
     }
-    }
 }
 
-// MARK: - UIAdaptivePresentationControllerDelegate protocol conformace
+// MARK: - UIAdaptivePresentationControllerDelegate protocol conformance
 
 extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
 
@@ -158,7 +159,7 @@ extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
     }
 }
 
-// MARK: - UITextFieldDelegate protocol conformace
+// MARK: - UITextFieldDelegate protocol conformance
 
 extension ComposeViewController: UITextFieldDelegate {
 

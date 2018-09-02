@@ -16,7 +16,7 @@ enum AppAssembly: Assembly {
     case compose(UIBarButtonItem, Configurator<AppAssembly>?)
     case scan(Constants.ScanCompletion)
 
-    // MARK: - Assembly protocol conformace
+    // MARK: - Assembly protocol conformance
 
     var scene: Presentable {
         switch self {

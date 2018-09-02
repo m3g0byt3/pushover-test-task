@@ -94,12 +94,14 @@ final class ScanViewController: UIViewController, Presentable {
         }
     }
 
+    // MARK: - Control handlers
+
     @objc private func cancelButtonHandler(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }
 
-// MARK: - ScanServiceDelegate protocol conformace
+// MARK: - ScanServiceDelegate protocol conformance
 
 extension ScanViewController: ScanServiceDelegate {
 
