@@ -13,7 +13,7 @@ import Moya
 enum AppAssembly: Assembly {
 
     case main(Configurator<AppAssembly>?)
-    case compose(UIBarButtonItem)
+    case compose(UIBarButtonItem, Configurator<AppAssembly>?)
     case scan(Constants.ScanCompletion)
 
     // MARK: - Assembly protocol conformace
@@ -43,11 +43,12 @@ enum AppAssembly: Assembly {
 
             return tabBarController
 
-        case .compose(let barButtonItem):
+        case .compose(let barButtonItem, let configurator):
             let composeViewController = ComposeViewController.fromNib()
             let navigationController = UINavigationController(rootViewController: composeViewController)
 
             composeViewController.networkService = networkService
+            composeViewController.configurator = configurator
             navigationController.modalPresentationStyle = .popover
             navigationController.popoverPresentationController?.barButtonItem = barButtonItem
             navigationController.presentationController?.delegate = composeViewController

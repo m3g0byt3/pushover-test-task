@@ -41,7 +41,7 @@ final class SentViewController: UIViewController, Presentable {
     // MARK: - Control handlers
 
     @objc private func composeButtonHandler(_ sender: UIBarButtonItem) {
-        let scene = configurator?.getScene(.compose(sender))
+        let scene = configurator?.getScene(.compose(sender, configurator))
         guard let viewController = scene?.presentableEntity else { return }
         navigationController?.present(viewController, animated: true)
     }
