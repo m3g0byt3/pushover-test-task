@@ -64,21 +64,29 @@ final class ComposeViewController: UIViewController, Presentable {
     // MARK: - Private API
 
     private func setupUI() {
-        let sendSelector = #selector(sendButtonHandler(_:))
-        let cancelSelector = #selector(cancelButtonHandler(_:))
-        let scheduleSelector = #selector(scheduleSwitchHandler(_:))
         // TODO: Disable send button when no valid input provided
         let sendButton = UIBarButtonItem(image: R.image.sent(),
                                          style: .plain,
                                          target: self,
-                                         action: sendSelector)
+                                         action: #selector(sendButtonHandler(_:)))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
                                            target: self,
-                                           action: cancelSelector)
+                                           action: #selector(cancelButtonHandler(_:)))
+        let scanButton = UIBarButtonItem(image: R.image.scanButton(),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(scanButtonHandler(_:)))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                         target: self,
+                                         action: #selector(doneButtonHandler(_:)))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                    target: nil,
+                                    action: nil)
 
-        scheduleSwitch.addTarget(self, action: scheduleSelector, for: .valueChanged)
+        scheduleSwitch.addTarget(self, action: #selector(scheduleSwitchHandler(_:)), for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
+        messageTextView.inputAccessoryItems = [space, scanButton, doneButton]
     }
 
     private func calculatePreferredContentSize() -> CGSize {
@@ -88,10 +96,7 @@ final class ComposeViewController: UIViewController, Presentable {
         return CGSize(width: width, height: height)
     }
 
-    // MARK: - Control handlers
-
-    @objc private func sendButtonHandler(_ sender: UIBarButtonItem) {
-        guard let message = message else { return }
+    private func performNetworkRequest(for message: Message) {
         networkService.send(message: message) { [weak self] result in
             switch result {
             case .success(let response):
@@ -106,6 +111,13 @@ final class ComposeViewController: UIViewController, Presentable {
         }
     }
 
+    // MARK: - Control handlers
+
+    @objc private func sendButtonHandler(_ sender: UIBarButtonItem) {
+        guard let message = message else { return }
+        performNetworkRequest(for: message)
+    }
+
     @objc private func cancelButtonHandler(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true)
     }
@@ -113,6 +125,13 @@ final class ComposeViewController: UIViewController, Presentable {
     @objc private func scheduleSwitchHandler(_ sender: UISwitch) {
         // TODO: Add actual implementation
         scheduleLabel.textColor = sender.isOn ? .black : .lightGray
+    }
+
+    @objc private func doneButtonHandler(_ sender: UIBarButtonItem) {
+        UIResponder.current?.resignFirstResponder()
+    }
+
+    @objc private func scanButtonHandler(_ sender: UIBarButtonItem) {
     }
 }
 

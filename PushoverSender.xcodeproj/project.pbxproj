@@ -13,6 +13,7 @@
 		41164D27213AB91C00A2548E /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D26213AB91C00A2548E /* Configurator.swift */; };
 		41164D2A213ABED400A2548E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D29213ABED400A2548E /* R.generated.swift */; };
 		41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */; };
+		41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41275C36213BF83D009A4F4B /* UIResponder+Extensions.swift */; };
 		41692D17213ACF2600752765 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D16213ACF2600752765 /* Message.swift */; };
 		41692D1B213AD26200752765 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1A213AD26200752765 /* Recipient.swift */; };
 		41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1C213AFA2300752765 /* PushoverAPI.swift */; };
@@ -45,6 +46,7 @@
 		41164D26213AB91C00A2548E /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		41164D29213ABED400A2548E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverNetworkService.swift; sourceTree = "<group>"; };
+		41275C36213BF83D009A4F4B /* UIResponder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extensions.swift"; sourceTree = "<group>"; };
 		41692D16213ACF2600752765 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		41692D1A213AD26200752765 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		41692D1C213AFA2300752765 /* PushoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverAPI.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				41BC6DEE213AA39D00EF6EFA /* UIViewController+Extensions.swift */,
 				41692D2A213B331900752765 /* Array+Extensions.swift */,
+				41275C36213BF83D009A4F4B /* UIResponder+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */,
 				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
 				41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */,
+				41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
 				41692D1F213B140900752765 /* PushoverError.swift in Sources */,
 				41692D25213B1E2200752765 /* VerificationResponse.swift in Sources */,

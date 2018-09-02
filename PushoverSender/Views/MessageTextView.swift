@@ -24,9 +24,20 @@ class MessageTextView: UITextView {
         }
     }
 
+    var inputAccessoryItems: [UIBarButtonItem] {
+        get {
+            return _toolbar?.items ?? []
+        }
+        set {
+            _toolbar?.items = newValue
+            _toolbar?.sizeToFit()
+        }
+    }
+
     // MARK: - Private properties
 
     private weak var _placeholder: UILabel?
+    private weak var _toolbar: UIToolbar?
 
     // MARK: - Initialization
 
@@ -60,6 +71,7 @@ class MessageTextView: UITextView {
 
     private func setupUI() {
         let placeholder = UILabel(frame: .zero)
+        let toolBar = UIToolbar(frame: .zero)
 
         placeholder.textColor = Constants.Interface.placeholderColor
         placeholder.font = font
@@ -69,6 +81,9 @@ class MessageTextView: UITextView {
         layer.borderWidth = Constants.Interface.borderWidth
         layer.cornerRadius = Constants.Interface.cornerRadius
         layer.borderColor = Constants.Interface.borderColor.cgColor
+
+        inputAccessoryView = toolBar
+        _toolbar = toolBar
     }
 
     private func setupNotification() {
