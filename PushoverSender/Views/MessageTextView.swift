@@ -14,6 +14,14 @@ class MessageTextView: UITextView {
 
     // MARK: - Public properties
 
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    override var text: String! {
+        // Workaround for non-firing notifications when `text` is changed programmatically.
+        didSet {
+            textDidChange()
+        }
+    }
+
     @IBInspectable
     var placeholder: String? {
         get {
