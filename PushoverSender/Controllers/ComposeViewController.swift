@@ -42,6 +42,8 @@ final class ComposeViewController: UIViewController, Presentable {
     var networkService: NetworkService!
     // swiftlint:disable:previous implicitly_unwrapped_optional
 
+    var configurator: Configurator<AppAssembly>?
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -111,6 +113,16 @@ final class ComposeViewController: UIViewController, Presentable {
         }
     }
 
+    private func showScanner() {
+        let completion: Constants.ScanCompletion = { [weak self] value in
+            self?.messageTextView.text = value
+            self?.navigationController?.presentedViewController?.dismiss(animated: true)
+        }
+        let scene = configurator?.getScene(.scan(completion))
+        guard let viewController = scene?.presentableEntity else { return }
+        navigationController?.present(viewController, animated: true)
+    }
+
     // MARK: - Control handlers
 
     @objc private func sendButtonHandler(_ sender: UIBarButtonItem) {
@@ -132,6 +144,8 @@ final class ComposeViewController: UIViewController, Presentable {
     }
 
     @objc private func scanButtonHandler(_ sender: UIBarButtonItem) {
+        showScanner()
+    }
     }
 }
 

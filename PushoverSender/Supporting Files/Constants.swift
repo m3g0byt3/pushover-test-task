@@ -11,6 +11,10 @@ import UIKit
 
 enum Constants {
 
+    // MARK: - Typealiases
+
+    typealias ScanCompletion = (String) -> Void
+
     enum Interface {
         static let alertCloseButtonTitle = "OK"
         static let sentTitle = "Sent"
@@ -28,6 +32,7 @@ enum Constants {
         static let xInset: CGFloat = 4.0
         static let yInsetDivider: CGFloat = 2.0
         static let animationDuration: TimeInterval = 0.3
+        static let cancelButtonBottomRatio: CGFloat = 0.95
     }
 
     enum Identifier {
