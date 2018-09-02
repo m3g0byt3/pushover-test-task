@@ -16,7 +16,7 @@ final class ScanViewController: UIViewController, Presentable {
 
     private weak var previewLayer: CALayer?
 
-    private var cancelButton: UIButton = { this in
+    private lazy var cancelButton: UIButton = { this in
         let image = R.image.closeButton()?.withRenderingMode(.alwaysTemplate)
         this.setImage(image, for: .normal)
         this.tintColor = .lightGray
