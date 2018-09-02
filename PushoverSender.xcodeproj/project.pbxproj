@@ -14,6 +14,7 @@
 		41164D2A213ABED400A2548E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D29213ABED400A2548E /* R.generated.swift */; };
 		41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */; };
 		41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41275C36213BF83D009A4F4B /* UIResponder+Extensions.swift */; };
+		41275C3B213BF9BD009A4F4B /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41275C3A213BF9BD009A4F4B /* ScanService.swift */; };
 		41692D17213ACF2600752765 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D16213ACF2600752765 /* Message.swift */; };
 		41692D1B213AD26200752765 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1A213AD26200752765 /* Recipient.swift */; };
 		41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1C213AFA2300752765 /* PushoverAPI.swift */; };
@@ -37,6 +38,8 @@
 		41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E02213AAEEE00EF6EFA /* NetworkService.swift */; };
 		41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6E04213AAF0300EF6EFA /* DatabaseService.swift */; };
 		41C4C914213C2124002E3548 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C913213C2124002E3548 /* MessageTextView.swift */; };
+		41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C915213C2FA7002E3548 /* ScannerError.swift */; };
+		41C4C91A213C320B002E3548 /* ScanServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,7 @@
 		41164D29213ABED400A2548E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverNetworkService.swift; sourceTree = "<group>"; };
 		41275C36213BF83D009A4F4B /* UIResponder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extensions.swift"; sourceTree = "<group>"; };
+		41275C3A213BF9BD009A4F4B /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
 		41692D16213ACF2600752765 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		41692D1A213AD26200752765 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		41692D1C213AFA2300752765 /* PushoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverAPI.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		41BC6E02213AAEEE00EF6EFA /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		41BC6E04213AAF0300EF6EFA /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		41C4C913213C2124002E3548 /* MessageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextView.swift; sourceTree = "<group>"; };
+		41C4C915213C2FA7002E3548 /* ScannerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerError.swift; sourceTree = "<group>"; };
+		41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServiceDelegate.swift; sourceTree = "<group>"; };
 		69994152363480F94EDF4C07 /* Pods-PushoverSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.release.xcconfig"; sourceTree = "<group>"; };
 		A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushoverSender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +179,7 @@
 				41692D1C213AFA2300752765 /* PushoverAPI.swift */,
 				41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */,
 				41692D1E213B140900752765 /* PushoverError.swift */,
+				41C4C918213C2FDE002E3548 /* QR Scanner */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -203,8 +210,19 @@
 				41BC6E00213AAE5D00EF6EFA /* Presentable.swift */,
 				41BC6E02213AAEEE00EF6EFA /* NetworkService.swift */,
 				41BC6E04213AAF0300EF6EFA /* DatabaseService.swift */,
+				41275C3A213BF9BD009A4F4B /* ScanService.swift */,
+				41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		41C4C918213C2FDE002E3548 /* QR Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				41C4C911213BFD51002E3548 /* QRCodeScanner.swift */,
+				41C4C915213C2FA7002E3548 /* ScannerError.swift */,
+			);
+			path = "QR Scanner";
 			sourceTree = "<group>";
 		};
 		9A996BDF27F3B7B4F700D6B1 /* Pods */ = {
@@ -377,12 +395,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				41692D21213B1E0500752765 /* MessageResponse.swift in Sources */,
+				41C4C91A213C320B002E3548 /* ScanServiceDelegate.swift in Sources */,
 				41164D27213AB91C00A2548E /* Configurator.swift in Sources */,
 				41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */,
 				41692D2B213B331900752765 /* Array+Extensions.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
 				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,
+				41275C3B213BF9BD009A4F4B /* ScanService.swift in Sources */,
 				41692D29213B1FEA00752765 /* ErrorResponse.swift in Sources */,
 				41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */,
 				41C4C914213C2124002E3548 /* MessageTextView.swift in Sources */,
@@ -399,6 +419,7 @@
 				41692D1F213B140900752765 /* PushoverError.swift in Sources */,
 				41692D25213B1E2200752765 /* VerificationResponse.swift in Sources */,
 				41BC6E01213AAE5D00EF6EFA /* Presentable.swift in Sources */,
+				41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */,
 				41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
