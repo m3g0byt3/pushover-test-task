@@ -8,4 +8,11 @@
 
 import Foundation
 
-protocol DatabaseService {}
+protocol DatabaseService {
+
+    associatedtype DatabaseItem
+
+    func save(_ object: DatabaseItem) throws
+
+    func delete(_ object: DatabaseItem) throws
+}
