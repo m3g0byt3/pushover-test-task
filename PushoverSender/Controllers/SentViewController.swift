@@ -33,7 +33,6 @@ final class SentViewController: UIViewController, Presentable {
 
     private var history = [HistoryItem]()
 
-
     // MARK: - Lifecycle
 
     override func viewDidLoad() {

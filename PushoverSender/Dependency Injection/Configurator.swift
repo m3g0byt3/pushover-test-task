@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Simple dependency injector, inspired by Moya.
+/// Simple service locator, inspired by Moya.
 final class Configurator<A: Assembly> {
 
     // MARK: - Typealiases

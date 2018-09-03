@@ -11,6 +11,8 @@ import Foundation
 protocol Assembly {
 
     var scene: Presentable { get }
+
     var networkService: NetworkService { get }
+
     var databaseService: AnyDatabaseService<HistoryItem> { get }
 }

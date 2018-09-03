@@ -10,9 +10,13 @@ import Foundation
 
 protocol DatabaseService {
 
-    typealias Completion = ([DatabaseItem], Diff) -> Void
+    // MARK: - Typealiases
 
     associatedtype DatabaseItem
+
+    typealias Completion = ([DatabaseItem], Diff) -> Void
+
+    // MARK: - Protocol requirements
 
     func save(_ object: DatabaseItem) throws
 

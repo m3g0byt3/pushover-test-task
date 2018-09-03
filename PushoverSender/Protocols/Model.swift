@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Adopted by immutable struct instance
+/// Adopted by immutable struct
 protocol Model {
 
     associatedtype ModelObject

@@ -18,5 +18,6 @@ protocol NetworkService {
     // MARK: - Protocol requirements
 
     func send(message: Message, completion: @escaping Completion)
+
     func verify(recipient: Recipient, completion: @escaping Completion)
 }
