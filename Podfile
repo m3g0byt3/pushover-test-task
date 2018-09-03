@@ -10,5 +10,6 @@ target 'PushoverSender' do
   pod 'Moya',           '~> 11.0'
   pod 'SnapKit',        '~> 4.0'
   pod 'RealmSwift',     '~> 3.5'
+  pod 'PKHUD',          '~> 5.0'
 
 end
