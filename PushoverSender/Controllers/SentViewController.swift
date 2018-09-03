@@ -48,12 +48,10 @@ final class SentViewController: UIViewController, Presentable {
         tableView.register(R.nib.historyCell)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constants.SentScene.estimatedRowHeight
+        navigationItem.rightBarButtonItem = composeButton
         if #available(iOS 11, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
-        let selector = #selector(composeButtonHandler(_:))
-        let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: selector)
-        navigationItem.rightBarButtonItem = composeButton
     }
 
     private func setupObservation() {
