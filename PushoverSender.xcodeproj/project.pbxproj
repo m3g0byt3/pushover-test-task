@@ -18,7 +18,6 @@
 		4101884E213D24F400BFBB75 /* AnyDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */; };
 		41018850213D43C300BFBB75 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884F213D43C300BFBB75 /* APIResponse.swift */; };
 		41164D23213AB8A200A2548E /* SentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D22213AB8A200A2548E /* SentViewController.xib */; };
-		41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D24213AB8AF00A2548E /* ScheduledViewController.xib */; };
 		41164D27213AB91C00A2548E /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D26213AB91C00A2548E /* Configurator.swift */; };
 		41164D2A213ABED400A2548E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D29213ABED400A2548E /* R.generated.swift */; };
 		41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */; };
@@ -37,7 +36,6 @@
 		41BC6DEB213A98D200EF6EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DE9213A98D200EF6EFA /* LaunchScreen.storyboard */; };
 		41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DEE213AA39D00EF6EFA /* UIViewController+Extensions.swift */; };
 		41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF0213AA3CA00EF6EFA /* Constants.swift */; };
-		41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */; };
 		41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */; };
 		41BC6DF7213AA4D400EF6EFA /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */; };
 		41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DFB213AADE900EF6EFA /* AppAssembly.swift */; };
@@ -68,7 +66,6 @@
 		4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDatabaseService.swift; sourceTree = "<group>"; };
 		4101884F213D43C300BFBB75 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		41164D22213AB8A200A2548E /* SentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentViewController.xib; sourceTree = "<group>"; };
-		41164D24213AB8AF00A2548E /* ScheduledViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduledViewController.xib; sourceTree = "<group>"; };
 		41164D26213AB91C00A2548E /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		41164D29213ABED400A2548E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverNetworkService.swift; sourceTree = "<group>"; };
@@ -89,7 +86,6 @@
 		41BC6DEA213A98D200EF6EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41BC6DEE213AA39D00EF6EFA /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		41BC6DF0213AA3CA00EF6EFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledViewController.swift; sourceTree = "<group>"; };
 		41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		41BC6DFB213AADE900EF6EFA /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -214,8 +210,6 @@
 			children = (
 				41BC6DD3213A97B800EF6EFA /* SentViewController.swift */,
 				41164D22213AB8A200A2548E /* SentViewController.xib */,
-				41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */,
-				41164D24213AB8AF00A2548E /* ScheduledViewController.xib */,
 				41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */,
 				41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */,
 				41275C38213BF97E009A4F4B /* ScanViewController.swift */,
@@ -369,7 +363,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */,
 				41164D23213AB8A200A2548E /* SentViewController.xib in Resources */,
 				41BC6DEB213A98D200EF6EFA /* LaunchScreen.storyboard in Resources */,
 				41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */,
@@ -493,7 +486,6 @@
 				41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */,
 				41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */,
 				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
-				41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */,
 				41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
 				41692D1F213B140900752765 /* PushoverError.swift in Sources */,
