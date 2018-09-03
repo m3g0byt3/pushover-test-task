@@ -28,6 +28,7 @@
 		41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1C213AFA2300752765 /* PushoverAPI.swift */; };
 		41692D1F213B140900752765 /* PushoverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1E213B140900752765 /* PushoverError.swift */; };
 		41692D2B213B331900752765 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D2A213B331900752765 /* Array+Extensions.swift */; };
+		41A8C14C213DA02E00F742A7 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8C14B213DA02E00F742A7 /* Configurable.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
 		41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD8213A97B900EF6EFA /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		41692D1C213AFA2300752765 /* PushoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverAPI.swift; sourceTree = "<group>"; };
 		41692D1E213B140900752765 /* PushoverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverError.swift; sourceTree = "<group>"; };
 		41692D2A213B331900752765 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		41A8C14B213DA02E00F742A7 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41BC6DD3213A97B800EF6EFA /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */,
 				41018844213D14C300BFBB75 /* ModelObject.swift */,
 				4101884A213D1C8600BFBB75 /* Model.swift */,
+				41A8C14B213DA02E00F742A7 /* Configurable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				41164D2A213ABED400A2548E /* R.generated.swift in Sources */,
 				41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */,
 				41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */,
+				41A8C14C213DA02E00F742A7 /* Configurable.swift in Sources */,
 				41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */,
 				41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */,
 				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
