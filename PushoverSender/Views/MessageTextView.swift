@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class MessageTextView: UITextView {
+final class MessageTextView: UITextView {
 
     // MARK: - Public properties
 

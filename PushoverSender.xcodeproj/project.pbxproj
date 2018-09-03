@@ -49,10 +49,10 @@
 		41C4C914213C2124002E3548 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C913213C2124002E3548 /* MessageTextView.swift */; };
 		41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C915213C2FA7002E3548 /* ScannerError.swift */; };
 		41C4C91A213C320B002E3548 /* ScanServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */; };
+		41E1E36B213D4D7900563E2F /* MoyaProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */; };
 		41E1E36D213D662500563E2F /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36C213D662500563E2F /* Diff.swift */; };
 		41E1E36F213D668600563E2F /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36E213D668600563E2F /* UITableView+Extensions.swift */; };
 		41E1E371213D734B00563E2F /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E370213D734B00563E2F /* SortOption.swift */; };
-		41E1E36B213D4D7900563E2F /* MoyaProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */; };
 		41E1E378213D8F7300563E2F /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E377213D8F7300563E2F /* UIBarButtonItem+Extensions.swift */; };
 /* End PBXBuildFile section */
 

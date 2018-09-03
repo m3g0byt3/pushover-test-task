@@ -11,11 +11,11 @@ import Moya
 import Alamofire
 
 /// Provides custom AlamofireManager
-public extension MoyaProvider {
+extension MoyaProvider {
 
     /// Class method that returns customized instance of Alamofire default manager
     /// - returns: Customized instance of Alamofire default manager
-    public final class func customAlamofireManager() -> Manager {
+    final class func customAlamofireManager() -> Manager {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = Constants.Network.timeout
         configuration.timeoutIntervalForResource = Constants.Network.timeout
