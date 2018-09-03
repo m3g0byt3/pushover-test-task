@@ -6,6 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+// TODO: Disable send button when no valid input provided
+
 import Foundation
 import UIKit
 
@@ -78,12 +80,9 @@ final class ComposeViewController: UIViewController, Presentable {
         setupUI()
     }
 
-    }
-
     // MARK: - Private API
 
     private func setupUI() {
-        // TODO: Disable send button when no valid input provided
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
         messageTextView.inputAccessoryItems.insert(scanButton, at: 0)
@@ -94,7 +93,7 @@ final class ComposeViewController: UIViewController, Presentable {
         networkService.send(message: message) { [weak self] result in
             let alertData: (title: String, message: String)
             let historyItem: HistoryItem
-
+            // Extract data from result
             switch result {
             case .success(let response):
                 historyItem = HistoryItem(message: message, response: response)

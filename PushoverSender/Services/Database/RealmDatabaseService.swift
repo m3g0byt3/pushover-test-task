@@ -6,10 +6,10 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-// swiftlint:disable force_cast
-
 import Foundation
 import RealmSwift
+
+// TODO: Modify objects in background queue
 
 final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelObject, T.Model: Model {
 
@@ -33,6 +33,7 @@ final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelOb
     func save(_ object: T.Model) throws {
         let realm = try Realm(configuration: configuration)
         try realm.write {
+            // swiftlint:disable:next force_cast
             realm.add(object.modelObject as! T)
         }
     }
@@ -40,6 +41,7 @@ final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelOb
     func delete(_ object: T.Model) throws {
         let realm = try Realm(configuration: configuration)
         try realm.write {
+            // swiftlint:disable:next force_cast
             realm.delete(object.modelObject as! T)
         }
     }
@@ -60,7 +62,7 @@ final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelOb
         let token = results?.observe { changes in
             switch changes {
 
-            case let.initial(objects):
+            case let .initial(objects):
                 let models = Array(objects).map { $0.model }
                 let diff = Diff.initial
 
@@ -74,9 +76,8 @@ final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelOb
 
                 completion(models, diff)
 
-            case .error:
-                // TODO: Handle an error
-                break
+            case let .error(error):
+                assertionFailure("A Realm error has occured: \(error.localizedDescription)")
             }
         }
 

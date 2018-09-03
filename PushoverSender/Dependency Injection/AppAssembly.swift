@@ -39,8 +39,6 @@ enum AppAssembly: Assembly {
             let composeViewController = ComposeViewController.fromNib()
             let navigationController = UINavigationController(rootViewController: composeViewController)
 
-            // TODO: Get rid of popover
-
             composeViewController.networkService = networkService
             composeViewController.databaseService = databaseService
             composeViewController.configurator = configurator

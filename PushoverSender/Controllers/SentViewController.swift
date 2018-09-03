@@ -82,6 +82,7 @@ extension SentViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView
+            // swiftlint:disable:next force_unwrapping
             .dequeueReusableCell(withIdentifier: R.reuseIdentifier.historyCell, for: indexPath)!
             .configure(with: history[indexPath.row])
     }
