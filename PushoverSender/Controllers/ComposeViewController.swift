@@ -36,11 +36,6 @@ final class ComposeViewController: UIViewController, Presentable {
         return UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
     }()
 
-    private lazy var doneButton: UIBarButtonItem = {
-        let selector = #selector(barButtonHandler(_:))
-        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: selector)
-    }()
-
     private var firstResponders: [UIResponder] {
         return [recipientTextField, titleTextField, messageTextView]
     }
@@ -90,7 +85,6 @@ final class ComposeViewController: UIViewController, Presentable {
         scheduleSwitch.addTarget(self, action: #selector(scheduleSwitchHandler(_:)), for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
-        messageTextView.inputAccessoryItems = [UIBarButtonItem.flexibleSpace, scanButton, doneButton]
     }
 
     private func calculatePreferredContentSize() -> CGSize {
@@ -141,7 +135,6 @@ final class ComposeViewController: UIViewController, Presentable {
         switch sender {
         case sendButton: performNetworkRequest(for: message)
         case cancelButton: navigationController?.dismiss(animated: true)
-        case doneButton: UIResponder.current?.resignFirstResponder()
         case scanButton: showScanner()
         default: break
         }

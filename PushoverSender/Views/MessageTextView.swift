@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class MessageTextView: UITextView {
+final class MessageTextView: UITextView, Dismissable {
 
     // MARK: - Public properties
 
@@ -45,7 +45,9 @@ final class MessageTextView: UITextView {
     // MARK: - Private properties
 
     private weak var _placeholder: UILabel?
-    private weak var _toolbar: UIToolbar?
+    private weak var _toolbar: UIToolbar? {
+        return inputAccessoryView as? UIToolbar
+    }
 
     // MARK: - Initialization
 
@@ -88,7 +90,6 @@ final class MessageTextView: UITextView {
 
     private func setupUI() {
         let placeholder = UILabel(frame: .zero)
-        let toolBar = UIToolbar(frame: .zero)
 
         placeholder.textColor = Constants.Interface.placeholderColor
         placeholder.font = font
@@ -98,9 +99,6 @@ final class MessageTextView: UITextView {
         layer.borderWidth = Constants.Interface.borderWidth
         layer.cornerRadius = Constants.Interface.cornerRadius
         layer.borderColor = Constants.Interface.borderColor.cgColor
-
-        inputAccessoryView = toolBar
-        _toolbar = toolBar
     }
 
     private func setupNotification() {
