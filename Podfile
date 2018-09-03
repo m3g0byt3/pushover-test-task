@@ -9,5 +9,6 @@ target 'PushoverSender' do
   pod 'R.swift'
   pod 'Moya'
   pod 'SnapKit'
+  pod 'RealmSwift'
 
 end

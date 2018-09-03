@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		36421C7B184ACDC3D1F525BE /* Pods_PushoverSender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */; };
+		4101883F213D0BE700BFBB75 /* RealmDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101883E213D0BE700BFBB75 /* RealmDatabaseService.swift */; };
+		41018841213D134700BFBB75 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41018840213D134700BFBB75 /* HistoryItem.swift */; };
+		41018843213D148D00BFBB75 /* HistoryItemModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41018842213D148D00BFBB75 /* HistoryItemModelObject.swift */; };
+		41018845213D14C300BFBB75 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41018844213D14C300BFBB75 /* ModelObject.swift */; };
+		4101884B213D1C8600BFBB75 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884A213D1C8600BFBB75 /* Model.swift */; };
+		4101884E213D24F400BFBB75 /* AnyDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */; };
 		41018850213D43C300BFBB75 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884F213D43C300BFBB75 /* APIResponse.swift */; };
 		41164D23213AB8A200A2548E /* SentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D22213AB8A200A2548E /* SentViewController.xib */; };
 		41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D24213AB8AF00A2548E /* ScheduledViewController.xib */; };
@@ -40,11 +46,19 @@
 		41C4C914213C2124002E3548 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C913213C2124002E3548 /* MessageTextView.swift */; };
 		41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C915213C2FA7002E3548 /* ScannerError.swift */; };
 		41C4C91A213C320B002E3548 /* ScanServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */; };
+		41E1E36D213D662500563E2F /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36C213D662500563E2F /* Diff.swift */; };
+		41E1E371213D734B00563E2F /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E370213D734B00563E2F /* SortOption.swift */; };
 		41E1E36B213D4D7900563E2F /* MoyaProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01786F4A17AA3E7E9F8DE40A /* Pods-PushoverSender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.debug.xcconfig"; sourceTree = "<group>"; };
+		4101883E213D0BE700BFBB75 /* RealmDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseService.swift; sourceTree = "<group>"; };
+		41018840213D134700BFBB75 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
+		41018842213D148D00BFBB75 /* HistoryItemModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemModelObject.swift; sourceTree = "<group>"; };
+		41018844213D14C300BFBB75 /* ModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
+		4101884A213D1C8600BFBB75 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDatabaseService.swift; sourceTree = "<group>"; };
 		4101884F213D43C300BFBB75 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		41164D22213AB8A200A2548E /* SentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentViewController.xib; sourceTree = "<group>"; };
 		41164D24213AB8AF00A2548E /* ScheduledViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduledViewController.xib; sourceTree = "<group>"; };
@@ -80,6 +94,8 @@
 		41C4C915213C2FA7002E3548 /* ScannerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerError.swift; sourceTree = "<group>"; };
 		41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServiceDelegate.swift; sourceTree = "<group>"; };
 		41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extensions.swift"; sourceTree = "<group>"; };
+		41E1E36C213D662500563E2F /* Diff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
+		41E1E370213D734B00563E2F /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 		69994152363480F94EDF4C07 /* Pods-PushoverSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.release.xcconfig"; sourceTree = "<group>"; };
 		A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushoverSender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +112,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4101883B213D0A9B00BFBB75 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				4101883E213D0BE700BFBB75 /* RealmDatabaseService.swift */,
+				41E1E370213D734B00563E2F /* SortOption.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		4101884C213D24E000BFBB75 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
 		41BC6DC5213A97B800EF6EFA = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +156,7 @@
 				41BC6DE7213A986200EF6EFA /* Controllers */,
 				41BC6DE8213A987C00EF6EFA /* Services */,
 				41BC6DFD213AADFD00EF6EFA /* Protocols */,
+				4101884C213D24E000BFBB75 /* Wrappers */,
 				41BC6DED213AA38000EF6EFA /* Extensions */,
 				41BC6DE3213A980300EF6EFA /* Supporting Files */,
 			);
@@ -148,6 +182,9 @@
 				41692D1A213AD26200752765 /* Recipient.swift */,
 				41692D16213ACF2600752765 /* Message.swift */,
 				4101884F213D43C300BFBB75 /* APIResponse.swift */,
+				41018840213D134700BFBB75 /* HistoryItem.swift */,
+				41018842213D148D00BFBB75 /* HistoryItemModelObject.swift */,
+				41E1E36C213D662500563E2F /* Diff.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +214,7 @@
 		41BC6DE8213A987C00EF6EFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4101883B213D0A9B00BFBB75 /* Database */,
 				41C4C917213C2FD7002E3548 /* Network */,
 				41C4C918213C2FDE002E3548 /* QR Scanner */,
 			);
@@ -212,6 +250,8 @@
 				41BC6E04213AAF0300EF6EFA /* DatabaseService.swift */,
 				41275C3A213BF9BD009A4F4B /* ScanService.swift */,
 				41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */,
+				41018844213D14C300BFBB75 /* ModelObject.swift */,
+				4101884A213D1C8600BFBB75 /* Model.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -381,6 +421,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -389,6 +431,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -404,11 +448,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4101884B213D1C8600BFBB75 /* Model.swift in Sources */,
+				41018843213D148D00BFBB75 /* HistoryItemModelObject.swift in Sources */,
 				41C4C91A213C320B002E3548 /* ScanServiceDelegate.swift in Sources */,
 				41164D27213AB91C00A2548E /* Configurator.swift in Sources */,
 				41018850213D43C300BFBB75 /* APIResponse.swift in Sources */,
 				41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */,
 				41692D2B213B331900752765 /* Array+Extensions.swift in Sources */,
+				41E1E371213D734B00563E2F /* SortOption.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
 				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,
@@ -418,6 +465,7 @@
 				41C4C914213C2124002E3548 /* MessageTextView.swift in Sources */,
 				41C4C912213BFD51002E3548 /* QRCodeScanner.swift in Sources */,
 				41692D1B213AD26200752765 /* Recipient.swift in Sources */,
+				41018841213D134700BFBB75 /* HistoryItem.swift in Sources */,
 				41164D2A213ABED400A2548E /* R.generated.swift in Sources */,
 				41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */,
 				41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */,
@@ -428,8 +476,12 @@
 				41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
 				41692D1F213B140900752765 /* PushoverError.swift in Sources */,
+				41E1E36D213D662500563E2F /* Diff.swift in Sources */,
 				41BC6E01213AAE5D00EF6EFA /* Presentable.swift in Sources */,
+				41018845213D14C300BFBB75 /* ModelObject.swift in Sources */,
+				4101883F213D0BE700BFBB75 /* RealmDatabaseService.swift in Sources */,
 				41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */,
+				4101884E213D24F400BFBB75 /* AnyDatabaseService.swift in Sources */,
 				41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */,
 				41275C39213BF97E009A4F4B /* ScanViewController.swift in Sources */,
 			);

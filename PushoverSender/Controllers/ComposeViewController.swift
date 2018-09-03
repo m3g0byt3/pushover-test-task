@@ -42,6 +42,8 @@ final class ComposeViewController: UIViewController, Presentable {
     var networkService: NetworkService!
     // swiftlint:disable:previous implicitly_unwrapped_optional
 
+    var databaseService: AnyDatabaseService<HistoryItem>!
+
     var configurator: Configurator<AppAssembly>?
 
     // MARK: - Lifecycle
@@ -101,14 +103,19 @@ final class ComposeViewController: UIViewController, Presentable {
     private func performNetworkRequest(for message: Message) {
         networkService.send(message: message) { [weak self] result in
             let alertData: (title: String, message: String)
+            let historyItem: HistoryItem
 
             switch result {
             case .success(let response):
+                historyItem = HistoryItem(message: message, response: response)
                 alertData = (response.title, response.message)
             case .failure(let error):
+                historyItem = HistoryItem(message: message, error: error)
                 alertData = (Constants.Interface.errorTitle,
                              Constants.Interface.errorMessage + error.localizedDescription)
             }
+            // Save result
+            try? self?.databaseService.save(historyItem)
             // Close this view controller and then show alert
             let parentViewController = self?.navigationController?.presentingViewController
             self?.navigationController?.dismiss(animated: true)
