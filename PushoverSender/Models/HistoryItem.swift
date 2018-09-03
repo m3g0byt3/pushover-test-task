@@ -10,10 +10,6 @@ import Foundation
 
 struct HistoryItem {
 
-    // MARK: - Constants
-
-    private static let successful = 1
-
     // MARK: - Public properties
 
     let message: Message
