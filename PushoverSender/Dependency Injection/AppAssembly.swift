@@ -28,6 +28,7 @@ enum AppAssembly: Assembly {
 
             sentViewController.navigationItem.title = Constants.Interface.sentTitle
             scheduledViewController.navigationItem.title = Constants.Interface.scheduledTitle
+            sentViewController.databaseService = databaseService
             sentViewController.configurator = configurator
 
             sentViewController.tabBarItem = UITabBarItem(title: Constants.Interface.sentTitle,
