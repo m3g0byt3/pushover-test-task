@@ -25,6 +25,7 @@ enum Constants {
     enum SentScene {
         static let title = "Sent"
         static let sortKeyPath = #keyPath(HistoryItemModelObject.date)
+        static let estimatedRowHeight: CGFloat = 60
     }
 
     enum ScheduledScene {

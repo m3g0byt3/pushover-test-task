@@ -12,6 +12,8 @@
 		41018841213D134700BFBB75 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41018840213D134700BFBB75 /* HistoryItem.swift */; };
 		41018843213D148D00BFBB75 /* HistoryItemModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41018842213D148D00BFBB75 /* HistoryItemModelObject.swift */; };
 		41018845213D14C300BFBB75 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41018844213D14C300BFBB75 /* ModelObject.swift */; };
+		41018848213D185300BFBB75 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41018846213D185300BFBB75 /* HistoryCell.swift */; };
+		41018849213D185300BFBB75 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41018847213D185300BFBB75 /* HistoryCell.xib */; };
 		4101884B213D1C8600BFBB75 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884A213D1C8600BFBB75 /* Model.swift */; };
 		4101884E213D24F400BFBB75 /* AnyDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */; };
 		41018850213D43C300BFBB75 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884F213D43C300BFBB75 /* APIResponse.swift */; };
@@ -28,6 +30,7 @@
 		41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1C213AFA2300752765 /* PushoverAPI.swift */; };
 		41692D1F213B140900752765 /* PushoverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1E213B140900752765 /* PushoverError.swift */; };
 		41692D2B213B331900752765 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D2A213B331900752765 /* Array+Extensions.swift */; };
+		41A8C14C213DA02E00F742A7 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8C14B213DA02E00F742A7 /* Configurable.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
 		41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD8213A97B900EF6EFA /* Assets.xcassets */; };
@@ -47,6 +50,7 @@
 		41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C915213C2FA7002E3548 /* ScannerError.swift */; };
 		41C4C91A213C320B002E3548 /* ScanServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */; };
 		41E1E36D213D662500563E2F /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36C213D662500563E2F /* Diff.swift */; };
+		41E1E36F213D668600563E2F /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36E213D668600563E2F /* UITableView+Extensions.swift */; };
 		41E1E371213D734B00563E2F /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E370213D734B00563E2F /* SortOption.swift */; };
 		41E1E36B213D4D7900563E2F /* MoyaProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */; };
 		41E1E378213D8F7300563E2F /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E377213D8F7300563E2F /* UIBarButtonItem+Extensions.swift */; };
@@ -58,6 +62,8 @@
 		41018840213D134700BFBB75 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
 		41018842213D148D00BFBB75 /* HistoryItemModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemModelObject.swift; sourceTree = "<group>"; };
 		41018844213D14C300BFBB75 /* ModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
+		41018846213D185300BFBB75 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		41018847213D185300BFBB75 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		4101884A213D1C8600BFBB75 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDatabaseService.swift; sourceTree = "<group>"; };
 		4101884F213D43C300BFBB75 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 		41692D1C213AFA2300752765 /* PushoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverAPI.swift; sourceTree = "<group>"; };
 		41692D1E213B140900752765 /* PushoverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverError.swift; sourceTree = "<group>"; };
 		41692D2A213B331900752765 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		41A8C14B213DA02E00F742A7 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41BC6DD3213A97B800EF6EFA /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +103,7 @@
 		41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServiceDelegate.swift; sourceTree = "<group>"; };
 		41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extensions.swift"; sourceTree = "<group>"; };
 		41E1E36C213D662500563E2F /* Diff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
+		41E1E36E213D668600563E2F /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		41E1E370213D734B00563E2F /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 		41E1E377213D8F7300563E2F /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		69994152363480F94EDF4C07 /* Pods-PushoverSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				41C4C913213C2124002E3548 /* MessageTextView.swift */,
+				41018846213D185300BFBB75 /* HistoryCell.swift */,
+				41018847213D185300BFBB75 /* HistoryCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +240,7 @@
 				41692D2A213B331900752765 /* Array+Extensions.swift */,
 				41275C36213BF83D009A4F4B /* UIResponder+Extensions.swift */,
 				41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */,
+				41E1E36E213D668600563E2F /* UITableView+Extensions.swift */,
 				41E1E377213D8F7300563E2F /* UIBarButtonItem+Extensions.swift */,
 			);
 			path = Extensions;
@@ -255,6 +266,7 @@
 				41C4C919213C320B002E3548 /* ScanServiceDelegate.swift */,
 				41018844213D14C300BFBB75 /* ModelObject.swift */,
 				4101884A213D1C8600BFBB75 /* Model.swift */,
+				41A8C14B213DA02E00F742A7 /* Configurable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -361,6 +373,7 @@
 				41164D23213AB8A200A2548E /* SentViewController.xib in Resources */,
 				41BC6DEB213A98D200EF6EFA /* LaunchScreen.storyboard in Resources */,
 				41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */,
+				41018849213D185300BFBB75 /* HistoryCell.xib in Resources */,
 				41BC6DF7213AA4D400EF6EFA /* ComposeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +473,7 @@
 				41692D2B213B331900752765 /* Array+Extensions.swift in Sources */,
 				41E1E371213D734B00563E2F /* SortOption.swift in Sources */,
 				41E1E378213D8F7300563E2F /* UIBarButtonItem+Extensions.swift in Sources */,
+				41018848213D185300BFBB75 /* HistoryCell.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
 				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,
@@ -473,6 +487,7 @@
 				41164D2A213ABED400A2548E /* R.generated.swift in Sources */,
 				41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */,
 				41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */,
+				41A8C14C213DA02E00F742A7 /* Configurable.swift in Sources */,
 				41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */,
 				41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */,
 				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
@@ -480,6 +495,7 @@
 				41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
 				41692D1F213B140900752765 /* PushoverError.swift in Sources */,
+				41E1E36F213D668600563E2F /* UITableView+Extensions.swift in Sources */,
 				41E1E36D213D662500563E2F /* Diff.swift in Sources */,
 				41BC6E01213AAE5D00EF6EFA /* Presentable.swift in Sources */,
 				41018845213D14C300BFBB75 /* ModelObject.swift in Sources */,
