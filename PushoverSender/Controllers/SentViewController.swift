@@ -39,18 +39,31 @@ final class SentViewController: UIViewController, Presentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupObservation()
     }
 
     // MARK: - Private API
 
     private func setupUI() {
+        tableView.register(R.nib.historyCell)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = Constants.SentScene.estimatedRowHeight
         if #available(iOS 11, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.sentCell)
         let selector = #selector(composeButtonHandler(_:))
         let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: selector)
         navigationItem.rightBarButtonItem = composeButton
+    }
+
+    private func setupObservation() {
+        let keyPath = Constants.SentScene.sortKeyPath
+        databaseService.observeChanges(sorted: .descending(keyPath: keyPath),
+                                       predicate: nil,
+                                       completion: { [weak self] history, diff in
+                                            self?.history = history
+                                            self?.tableView.apply(diff: diff)
+        })
     }
 
     // MARK: - Control handlers
@@ -67,10 +80,12 @@ final class SentViewController: UIViewController, Presentable {
 extension SentViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return history.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: Constants.Identifier.sentCell, for: indexPath)
+        return tableView
+            .dequeueReusableCell(withIdentifier: R.reuseIdentifier.historyCell, for: indexPath)!
+            .configure(with: history[indexPath.row])
     }
 }
