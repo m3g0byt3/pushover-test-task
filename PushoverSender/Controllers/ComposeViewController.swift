@@ -16,8 +16,6 @@ final class ComposeViewController: UIViewController, Presentable {
     @IBOutlet private weak var recipientTextField: UITextField!
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var messageTextView: MessageTextView!
-    @IBOutlet private weak var scheduleSwitch: UISwitch!
-    @IBOutlet private weak var scheduleLabel: UILabel!
 
     private lazy var sendButton: UIBarButtonItem = {
         let selector = #selector(barButtonHandler(_:))
@@ -82,7 +80,6 @@ final class ComposeViewController: UIViewController, Presentable {
 
     private func setupUI() {
         // TODO: Disable send button when no valid input provided
-        scheduleSwitch.addTarget(self, action: #selector(scheduleSwitchHandler(_:)), for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
     }
@@ -138,13 +135,6 @@ final class ComposeViewController: UIViewController, Presentable {
         case scanButton: showScanner()
         default: break
         }
-    }
-
-    @objc private func scheduleSwitchHandler(_ sender: UISwitch) {
-        // TODO: Add actual implementation
-        scheduleLabel.textColor = sender.isOn ? .black : .lightGray
-    }
-
     }
 }
 
