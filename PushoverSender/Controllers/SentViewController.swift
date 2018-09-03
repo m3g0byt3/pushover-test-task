@@ -11,15 +11,28 @@ import UIKit
 
 final class SentViewController: UIViewController, Presentable {
 
-    // MARK: - IBoutlets
+    // MARK: - IBOutlets and UI
 
     @IBOutlet private weak var tableView: UITableView!
 
-    // MARK: - Public properties
+    private lazy var composeButton: UIBarButtonItem = {
+        let selector = #selector(composeButtonHandler(_:))
+        return UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: selector)
+    }()
 
+    // MARK: - Dependencies
+
+    /// Service locator
     var configurator: Configurator<AppAssembly>?
 
+    /// Database service, provides persistence
     var databaseService: AnyDatabaseService<HistoryItem>!
+    // swiftlint:disable:previous implicitly_unwrapped_optional
+
+    // MARK: - Private properties
+
+    private var history = [HistoryItem]()
+
 
     // MARK: - Lifecycle
 

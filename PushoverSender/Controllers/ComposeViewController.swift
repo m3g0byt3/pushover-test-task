@@ -11,7 +11,7 @@ import UIKit
 
 final class ComposeViewController: UIViewController, Presentable {
 
-    // MARK: - IBoutlets
+    // MARK: - IBOutlets and UI
 
     @IBOutlet private weak var recipientTextField: UITextField!
     @IBOutlet private weak var titleTextField: UITextField!
@@ -19,11 +19,46 @@ final class ComposeViewController: UIViewController, Presentable {
     @IBOutlet private weak var scheduleSwitch: UISwitch!
     @IBOutlet private weak var scheduleLabel: UILabel!
 
-    // MARK: - Private properties
+    private lazy var sendButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        let image = R.image.sent()
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
+    }()
+
+    private lazy var cancelButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        return UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: selector)
+    }()
+
+    private lazy var scanButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        let image = R.image.scanButton()
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
+    }()
+
+    private lazy var doneButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: selector)
+    }()
 
     private var firstResponders: [UIResponder] {
         return [recipientTextField, titleTextField, messageTextView]
     }
+
+    // MARK: - Dependencies
+
+    /// Service locator
+    var configurator: Configurator<AppAssembly>?
+
+    /// Service to perform network requests.
+    var networkService: NetworkService!
+    // swiftlint:disable:previous implicitly_unwrapped_optional
+
+    /// Database service, provides persistence
+    var databaseService: AnyDatabaseService<HistoryItem>!
+    // swiftlint:disable:previous implicitly_unwrapped_optional
+
+    // MARK: - Private properties
 
     private var message: Message? {
         guard
@@ -35,16 +70,6 @@ final class ComposeViewController: UIViewController, Presentable {
                        title: title,
                        text: message)
     }
-
-    // MARK: - Public properties
-
-    /// Service to perform network requests.
-    var networkService: NetworkService!
-    // swiftlint:disable:previous implicitly_unwrapped_optional
-
-    var databaseService: AnyDatabaseService<HistoryItem>!
-
-    var configurator: Configurator<AppAssembly>?
 
     // MARK: - Lifecycle
 
@@ -58,39 +83,14 @@ final class ComposeViewController: UIViewController, Presentable {
         preferredContentSize = calculatePreferredContentSize()
     }
 
-    // MARK: - Public API
-
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupUI()
-    }
-
     // MARK: - Private API
 
     private func setupUI() {
         // TODO: Disable send button when no valid input provided
-        let sendButton = UIBarButtonItem(image: R.image.sent(),
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(sendButtonHandler(_:)))
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
-                                           target: self,
-                                           action: #selector(cancelButtonHandler(_:)))
-        let scanButton = UIBarButtonItem(image: R.image.scanButton(),
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(scanButtonHandler(_:)))
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
-                                         target: self,
-                                         action: #selector(doneButtonHandler(_:)))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                    target: nil,
-                                    action: nil)
-
         scheduleSwitch.addTarget(self, action: #selector(scheduleSwitchHandler(_:)), for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
-        messageTextView.inputAccessoryItems = [space, scanButton, doneButton]
+        messageTextView.inputAccessoryItems = [UIBarButtonItem.flexibleSpace, scanButton, doneButton]
     }
 
     private func calculatePreferredContentSize() -> CGSize {
@@ -100,7 +100,8 @@ final class ComposeViewController: UIViewController, Presentable {
         return CGSize(width: width, height: height)
     }
 
-    private func performNetworkRequest(for message: Message) {
+    private func performNetworkRequest(for message: Message?) {
+        guard let message = message else { return }
         networkService.send(message: message) { [weak self] result in
             let alertData: (title: String, message: String)
             let historyItem: HistoryItem
@@ -136,15 +137,14 @@ final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - Control handlers
 
-    // TODO: Replace with single control handler
-
-    @objc private func sendButtonHandler(_ sender: UIBarButtonItem) {
-        guard let message = message else { return }
-        performNetworkRequest(for: message)
-    }
-
-    @objc private func cancelButtonHandler(_ sender: UIBarButtonItem) {
-        navigationController?.dismiss(animated: true)
+    @objc private func barButtonHandler(_ sender: UIBarButtonItem) {
+        switch sender {
+        case sendButton: performNetworkRequest(for: message)
+        case cancelButton: navigationController?.dismiss(animated: true)
+        case doneButton: UIResponder.current?.resignFirstResponder()
+        case scanButton: showScanner()
+        default: break
+        }
     }
 
     @objc private func scheduleSwitchHandler(_ sender: UISwitch) {
@@ -152,12 +152,6 @@ final class ComposeViewController: UIViewController, Presentable {
         scheduleLabel.textColor = sender.isOn ? .black : .lightGray
     }
 
-    @objc private func doneButtonHandler(_ sender: UIBarButtonItem) {
-        UIResponder.current?.resignFirstResponder()
-    }
-
-    @objc private func scanButtonHandler(_ sender: UIBarButtonItem) {
-        showScanner()
     }
 }
 

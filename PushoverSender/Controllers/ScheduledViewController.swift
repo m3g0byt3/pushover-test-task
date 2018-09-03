@@ -11,7 +11,7 @@ import UIKit
 
 final class ScheduledViewController: UIViewController, Presentable {
 
-    // MARK: - IBoutlets
+    // MARK: - IBOutlets and UI
 
     @IBOutlet private weak var tableView: UITableView!
 

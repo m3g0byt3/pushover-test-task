@@ -12,7 +12,7 @@ import SnapKit
 
 final class ScanViewController: UIViewController, Presentable {
 
-    // MARK: - Private properties
+    // MARK: - IBOutlets and UI
 
     private weak var previewLayer: CALayer?
 
@@ -31,13 +31,16 @@ final class ScanViewController: UIViewController, Presentable {
         return this
     }(UILabel())
 
-    // MARK: - Public properties
+    // MARK: - Dependencies
 
     /// Service to perform QR code recognition.
     var scanService: ScanService!
     // swiftlint:disable:previous implicitly_unwrapped_optional
 
+    /// Completion handler called on QR code recognition
     var completion: Constants.ScanCompletion?
+
+    // MARK: - Public properties
 
     override var prefersStatusBarHidden: Bool {
         return true

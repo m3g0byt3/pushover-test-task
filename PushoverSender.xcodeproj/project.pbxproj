@@ -49,6 +49,7 @@
 		41E1E36D213D662500563E2F /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36C213D662500563E2F /* Diff.swift */; };
 		41E1E371213D734B00563E2F /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E370213D734B00563E2F /* SortOption.swift */; };
 		41E1E36B213D4D7900563E2F /* MoyaProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */; };
+		41E1E378213D8F7300563E2F /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1E377213D8F7300563E2F /* UIBarButtonItem+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extensions.swift"; sourceTree = "<group>"; };
 		41E1E36C213D662500563E2F /* Diff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		41E1E370213D734B00563E2F /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
+		41E1E377213D8F7300563E2F /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		69994152363480F94EDF4C07 /* Pods-PushoverSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.release.xcconfig"; sourceTree = "<group>"; };
 		A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushoverSender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -228,6 +230,7 @@
 				41692D2A213B331900752765 /* Array+Extensions.swift */,
 				41275C36213BF83D009A4F4B /* UIResponder+Extensions.swift */,
 				41E1E36A213D4D7900563E2F /* MoyaProvider+Extensions.swift */,
+				41E1E377213D8F7300563E2F /* UIBarButtonItem+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */,
 				41692D2B213B331900752765 /* Array+Extensions.swift in Sources */,
 				41E1E371213D734B00563E2F /* SortOption.swift in Sources */,
+				41E1E378213D8F7300563E2F /* UIBarButtonItem+Extensions.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
 				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,
