@@ -35,7 +35,6 @@ enum Constants {
                                               alpha: 1.0)
         static let xInset: CGFloat = 4.0
         static let yInsetDivider: CGFloat = 2.0
-        static let animationDuration: TimeInterval = 0.3
         static let cancelButtonBottomRatio: CGFloat = 0.95
     }
 

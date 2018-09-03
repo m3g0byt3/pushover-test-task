@@ -79,6 +79,11 @@ class MessageTextView: UITextView {
         super.updateConstraints()
     }
 
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupUI()
+    }
+
     // MARK: - Private API
 
     private func setupUI() {
@@ -110,9 +115,7 @@ class MessageTextView: UITextView {
         let isHidden = !text.isEmpty
 
         if placeholder.isHidden != isHidden {
-            UIView.animate(withDuration: Constants.Interface.animationDuration) {
-                placeholder.isHidden = isHidden
-            }
+            placeholder.isHidden = isHidden
         }
     }
 }
