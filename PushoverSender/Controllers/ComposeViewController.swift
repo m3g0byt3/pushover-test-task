@@ -83,6 +83,7 @@ final class ComposeViewController: UIViewController, Presentable {
     // MARK: - Private API
 
     private func setupUI() {
+        edgesForExtendedLayout = []
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
         messageTextView.inputAccessoryItems.insert(scanButton, at: 0)
