@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Moya
+import PKHUD
 
 enum AppAssembly: Assembly {
 
@@ -107,9 +108,16 @@ enum AppAssembly: Assembly {
             fatalError("No \"\(#function)\" dependency available for this target.")
         case .compose:
             return NetworkActivityPlugin { change, _ in
-                let isIndicatorVisible = change == .began
                 DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = isIndicatorVisible
+                    switch change {
+                    case .began:
+                        UIResponder.current?.resignFirstResponder()
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                        HUD.show(.progress)
+                    case .ended:
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        HUD.hide()
+                    }
                 }
             }
         }
