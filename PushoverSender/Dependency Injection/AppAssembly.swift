@@ -26,16 +26,16 @@ enum AppAssembly: Assembly {
             let scheduledViewController = ScheduledViewController.fromNib()
             let tabBarController = UITabBarController()
 
-            sentViewController.navigationItem.title = Constants.Interface.sentTitle
-            scheduledViewController.navigationItem.title = Constants.Interface.scheduledTitle
             sentViewController.databaseService = databaseService
+            sentViewController.navigationItem.title = Constants.SentScene.title
+            scheduledViewController.navigationItem.title = Constants.ScheduledScene.title
             sentViewController.configurator = configurator
 
-            sentViewController.tabBarItem = UITabBarItem(title: Constants.Interface.sentTitle,
+            sentViewController.tabBarItem = UITabBarItem(title: Constants.SentScene.title,
                                                          image: R.image.sent(),
                                                          selectedImage: nil)
 
-            scheduledViewController.tabBarItem = UITabBarItem(title: Constants.Interface.scheduledTitle,
+            scheduledViewController.tabBarItem = UITabBarItem(title: Constants.ScheduledScene.title,
                                                               image: R.image.scheduled(),
                                                               selectedImage: nil)
 

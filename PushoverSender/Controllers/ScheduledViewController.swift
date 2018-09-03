@@ -28,7 +28,6 @@ final class ScheduledViewController: UIViewController, Presentable {
         if #available(iOS 11, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.Identifier.scheduledCell)
         let selector = #selector(editButtonHandler(_:))
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: selector)
         navigationItem.rightBarButtonItem = editButton
@@ -50,6 +49,6 @@ extension ScheduledViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: Constants.Identifier.scheduledCell, for: indexPath)
+        fatalError()
     }
 }

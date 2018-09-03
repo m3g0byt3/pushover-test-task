@@ -17,14 +17,32 @@ enum Constants {
 
     // MARK: - Constants
 
-    enum Interface {
+    enum ComposeScene {
         static let errorTitle = "Error"
         static let errorMessage = "An error has occurred:\n"
+    }
+
+    enum SentScene {
+        static let title = "Sent"
+        static let sortKeyPath = #keyPath(HistoryItemModelObject.date)
+    }
+
+    enum ScheduledScene {
+        static let title = "Scheduled"
+    }
+
+    enum ScanScene {
+        static let cancelButtonBottomRatio: CGFloat = 0.95
+        static let backgroundColor = UIColor.black
+        static let textColor = UIColor.lightGray
+    }
+
+    enum Interface {
         static let alertCloseButtonTitle = "OK"
-        static let sentTitle = "Sent"
-        static let scheduledTitle = "Scheduled"
         static let borderWidth: CGFloat = 1.0
         static let cornerRadius: CGFloat = 5.0
+        static let xInset: CGFloat = 4.0
+        static let yInsetDivider: CGFloat = 2.0
         static let borderColor = UIColor(displayP3Red: 233.0 / 255.0,
                                          green: 233.0 / 255.0,
                                          blue: 233.0 / 255.0,
@@ -33,14 +51,6 @@ enum Constants {
                                               green: 205.0 / 255.0,
                                               blue: 210.0 / 255.0,
                                               alpha: 1.0)
-        static let xInset: CGFloat = 4.0
-        static let yInsetDivider: CGFloat = 2.0
-        static let cancelButtonBottomRatio: CGFloat = 0.95
-    }
-
-    enum Identifier {
-        static let sentCell = "Sent Cell"
-        static let scheduledCell = "Scheduled Cell"
     }
 
     enum Network {

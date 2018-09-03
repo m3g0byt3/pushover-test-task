@@ -18,14 +18,14 @@ final class ScanViewController: UIViewController, Presentable {
 
     private lazy var cancelButton: UIButton = { this in
         let image = R.image.closeButton()?.withRenderingMode(.alwaysTemplate)
+        this.tintColor = Constants.ScanScene.textColor
         this.setImage(image, for: .normal)
-        this.tintColor = .lightGray
         this.addTarget(self, action: #selector(cancelButtonHandler(_:)), for: .touchUpInside)
         return this
     }(UIButton(type: .system))
 
     private lazy var errorLabel: UILabel = { this in
-        this.textColor = .lightGray
+        this.textColor = Constants.ScanScene.textColor
         this.numberOfLines = 0
         this.textAlignment = .center
         return this
@@ -71,7 +71,7 @@ final class ScanViewController: UIViewController, Presentable {
 
     override func updateViewConstraints() {
         cancelButton.snp.updateConstraints { maker in
-            let ratio = Constants.Interface.cancelButtonBottomRatio
+            let ratio = Constants.ScanScene.cancelButtonBottomRatio
             maker.centerX.equalToSuperview()
             maker.bottom.equalToSuperview().multipliedBy(ratio)
         }
@@ -81,7 +81,7 @@ final class ScanViewController: UIViewController, Presentable {
     // MARK: - Private API
 
     private func setupUI() {
-        view.backgroundColor = .black
+        view.backgroundColor = Constants.ScanScene.backgroundColor
         view.addSubview(cancelButton)
         view.setNeedsUpdateConstraints()
     }

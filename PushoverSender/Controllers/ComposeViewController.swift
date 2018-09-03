@@ -111,8 +111,8 @@ final class ComposeViewController: UIViewController, Presentable {
                 alertData = (response.title, response.message)
             case .failure(let error):
                 historyItem = HistoryItem(message: message, error: error)
-                alertData = (Constants.Interface.errorTitle,
-                             Constants.Interface.errorMessage + error.localizedDescription)
+                alertData = (Constants.ComposeScene.errorTitle,
+                             Constants.ComposeScene.errorMessage + error.localizedDescription)
             }
             // Save result
             try? self?.databaseService.save(historyItem)
