@@ -11,19 +11,54 @@ import UIKit
 
 final class ComposeViewController: UIViewController, Presentable {
 
-    // MARK: - IBoutlets
+    // MARK: - IBOutlets and UI
 
     @IBOutlet private weak var recipientTextField: UITextField!
     @IBOutlet private weak var titleTextField: UITextField!
-    @IBOutlet private weak var messageTextView: UITextView!
+    @IBOutlet private weak var messageTextView: MessageTextView!
     @IBOutlet private weak var scheduleSwitch: UISwitch!
     @IBOutlet private weak var scheduleLabel: UILabel!
 
-    // MARK: - Private properties
+    private lazy var sendButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        let image = R.image.sent()
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
+    }()
+
+    private lazy var cancelButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        return UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: selector)
+    }()
+
+    private lazy var scanButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        let image = R.image.scanButton()
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
+    }()
+
+    private lazy var doneButton: UIBarButtonItem = {
+        let selector = #selector(barButtonHandler(_:))
+        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: selector)
+    }()
 
     private var firstResponders: [UIResponder] {
         return [recipientTextField, titleTextField, messageTextView]
     }
+
+    // MARK: - Dependencies
+
+    /// Service locator
+    var configurator: Configurator<AppAssembly>?
+
+    /// Service to perform network requests.
+    var networkService: NetworkService!
+    // swiftlint:disable:previous implicitly_unwrapped_optional
+
+    /// Database service, provides persistence
+    var databaseService: AnyDatabaseService<HistoryItem>!
+    // swiftlint:disable:previous implicitly_unwrapped_optional
+
+    // MARK: - Private properties
 
     private var message: Message? {
         guard
@@ -33,14 +68,8 @@ final class ComposeViewController: UIViewController, Presentable {
         else { return nil }
         return Message(recipient: Recipient(key: key, device: nil),
                        title: title,
-                       message: message)
+                       text: message)
     }
-
-    // MARK: - Public properties
-
-    /// Service to perform network requests.
-    var networkService: NetworkService!
-    // swiftlint:disable:previous implicitly_unwrapped_optional
 
     // MARK: - Lifecycle
 
@@ -54,35 +83,14 @@ final class ComposeViewController: UIViewController, Presentable {
         preferredContentSize = calculatePreferredContentSize()
     }
 
-    // MARK: - Public API
-
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupUI()
-    }
-
     // MARK: - Private API
 
     private func setupUI() {
-        let sendSelector = #selector(sendButtonHandler(_:))
-        let cancelSelector = #selector(cancelButtonHandler(_:))
-        let scheduleSelector = #selector(scheduleSwitchHandler(_:))
         // TODO: Disable send button when no valid input provided
-        let sendButton = UIBarButtonItem(image: R.image.sent(),
-                                         style: .plain,
-                                         target: self,
-                                         action: sendSelector)
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
-                                           target: self,
-                                           action: cancelSelector)
-
-        scheduleSwitch.addTarget(self, action: scheduleSelector, for: .valueChanged)
+        scheduleSwitch.addTarget(self, action: #selector(scheduleSwitchHandler(_:)), for: .valueChanged)
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
-        // TODO: Add placeholder for text view
-        messageTextView.layer.borderWidth = Constants.Interface.borderWidth
-        messageTextView.layer.cornerRadius = Constants.Interface.cornerRadius
-        messageTextView.layer.borderColor = Constants.Interface.borderColor.cgColor
+        messageTextView.inputAccessoryItems = [UIBarButtonItem.flexibleSpace, scanButton, doneButton]
     }
 
     private func calculatePreferredContentSize() -> CGSize {
@@ -92,35 +100,62 @@ final class ComposeViewController: UIViewController, Presentable {
         return CGSize(width: width, height: height)
     }
 
-    // MARK: - Control handlers
-
-    @objc private func sendButtonHandler(_ sender: UIBarButtonItem) {
+    private func performNetworkRequest(for message: Message?) {
         guard let message = message else { return }
         networkService.send(message: message) { [weak self] result in
+            let alertData: (title: String, message: String)
+            let historyItem: HistoryItem
+
             switch result {
             case .success(let response):
-                let parentViewController = self?.navigationController?.presentingViewController
-                self?.navigationController?.dismiss(animated: true)
-                parentViewController?.presentAlert(title: "Done",
-                                                   message: "Message sent successfully with token: \(response.request)")
+                historyItem = HistoryItem(message: message, response: response)
+                alertData = (response.title, response.message)
             case .failure(let error):
-                self?.presentAlert(title: "Error",
-                                   message: "Unable to send message due to error: \(error.localizedDescription)")
+                historyItem = HistoryItem(message: message, error: error)
+                alertData = (Constants.ComposeScene.errorTitle,
+                             Constants.ComposeScene.errorMessage + error.localizedDescription)
             }
+            // Save result
+            try? self?.databaseService.save(historyItem)
+            // Close this view controller and then show alert
+            let parentViewController = self?.navigationController?.presentingViewController
+            self?.navigationController?.dismiss(animated: true)
+            parentViewController?.presentAlert(title: alertData.title,
+                                               message: alertData.message)
         }
     }
 
-    @objc private func cancelButtonHandler(_ sender: UIBarButtonItem) {
-        navigationController?.dismiss(animated: true)
+    private func showScanner() {
+        let completion: Constants.ScanCompletion = { [weak self] value in
+            self?.messageTextView.text = value
+            self?.navigationController?.presentedViewController?.dismiss(animated: true)
+        }
+        let scene = configurator?.getScene(.scan(completion))
+        guard let viewController = scene?.presentableEntity else { return }
+        navigationController?.present(viewController, animated: true)
+    }
+
+    // MARK: - Control handlers
+
+    @objc private func barButtonHandler(_ sender: UIBarButtonItem) {
+        switch sender {
+        case sendButton: performNetworkRequest(for: message)
+        case cancelButton: navigationController?.dismiss(animated: true)
+        case doneButton: UIResponder.current?.resignFirstResponder()
+        case scanButton: showScanner()
+        default: break
+        }
     }
 
     @objc private func scheduleSwitchHandler(_ sender: UISwitch) {
         // TODO: Add actual implementation
         scheduleLabel.textColor = sender.isOn ? .black : .lightGray
     }
+
+    }
 }
 
-// MARK: - UIAdaptivePresentationControllerDelegate protocol conformace
+// MARK: - UIAdaptivePresentationControllerDelegate protocol conformance
 
 extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
 
@@ -129,7 +164,7 @@ extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
     }
 }
 
-// MARK: - UITextFieldDelegate protocol conformace
+// MARK: - UITextFieldDelegate protocol conformance
 
 extension ComposeViewController: UITextFieldDelegate {
 

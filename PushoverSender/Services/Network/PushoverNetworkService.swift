@@ -22,14 +22,14 @@ final class PushoverNetworkService: NetworkService {
         self.provider = provider
     }
 
-    // MARK: - NetworkService protocol conformace
+    // MARK: - NetworkService protocol conformance
 
-    func send(message: Message, completion: @escaping MessagingService.Completion) {
+    func send(message: Message, completion: @escaping NetworkService.Completion) {
         let moyaCompletion = completionFactory(completion: completion)
         provider.request(.send(message), completion: moyaCompletion)
     }
 
-    func verify(recipient: Recipient, completion: @escaping VerificationService.Completion) {
+    func verify(recipient: Recipient, completion: @escaping NetworkService.Completion) {
         let moyaCompletion = completionFactory(completion: completion)
         provider.request(.verify(recipient), completion: moyaCompletion)
     }
@@ -45,18 +45,8 @@ final class PushoverNetworkService: NetworkService {
                 do {
                     // Filtering in 200...499 range because we want to map 4xx responses as well
                     let filteredResponse = try response.filter(statusCodes: 200...499)
-
-                    switch filteredResponse.statusCode {
-                    // Map successful response
-                    case 200:
-                        let messageResponse = try filteredResponse.map(T.self)
-                        DispatchQueue.main.async { completion(.success(messageResponse)) }
-                    // Map unsuccessful response and wrap it to the error
-                    default:
-                        let errorResponse = try filteredResponse.map(ErrorResponse.self)
-                        let wrappedError = AnyError(errorResponse.apiError)
-                        DispatchQueue.main.async { completion(.failure(wrappedError)) }
-                    }
+                    let mappedResponse = try filteredResponse.map(T.self)
+                    DispatchQueue.main.async { completion(.success(mappedResponse)) }
                 } catch {
                     // Catch Moya errors (mapping, etc)
                     let wrappedError = AnyError(error)

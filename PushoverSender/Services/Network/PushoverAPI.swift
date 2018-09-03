@@ -16,7 +16,7 @@ enum PushoverAPI: TargetType {
     case send(Message)
     case verify(Recipient)
 
-    // MARK: - TargetType protocol conformace
+    // MARK: - TargetType protocol conformance
 
     var baseURL: URL {
         var components = URLComponents()
@@ -55,7 +55,7 @@ enum PushoverAPI: TargetType {
                 "user": message.recipient.key,
                 "device": message.recipient.device ?? "",
                 "title": message.title,
-                "message": message.message
+                "message": message.text
             ]
 
         case .verify(let recipient):

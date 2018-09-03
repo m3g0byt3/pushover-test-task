@@ -13,9 +13,10 @@ import Moya
 enum AppAssembly: Assembly {
 
     case main(Configurator<AppAssembly>?)
-    case compose(UIBarButtonItem)
+    case compose(UIBarButtonItem, Configurator<AppAssembly>?)
+    case scan(Constants.ScanCompletion)
 
-    // MARK: - Assembly protocol conformace
+    // MARK: - Assembly protocol conformance
 
     var scene: Presentable {
         switch self {
@@ -25,15 +26,16 @@ enum AppAssembly: Assembly {
             let scheduledViewController = ScheduledViewController.fromNib()
             let tabBarController = UITabBarController()
 
-            sentViewController.navigationItem.title = Constants.Interface.sentTitle
-            scheduledViewController.navigationItem.title = Constants.Interface.scheduledTitle
+            sentViewController.databaseService = databaseService
+            sentViewController.navigationItem.title = Constants.SentScene.title
+            scheduledViewController.navigationItem.title = Constants.ScheduledScene.title
             sentViewController.configurator = configurator
 
-            sentViewController.tabBarItem = UITabBarItem(title: Constants.Interface.sentTitle,
+            sentViewController.tabBarItem = UITabBarItem(title: Constants.SentScene.title,
                                                          image: R.image.sent(),
                                                          selectedImage: nil)
 
-            scheduledViewController.tabBarItem = UITabBarItem(title: Constants.Interface.scheduledTitle,
+            scheduledViewController.tabBarItem = UITabBarItem(title: Constants.ScheduledScene.title,
                                                               image: R.image.scheduled(),
                                                               selectedImage: nil)
 
@@ -42,46 +44,67 @@ enum AppAssembly: Assembly {
 
             return tabBarController
 
-        case .compose(let barButtonItem):
+        case let .compose(barButtonItem, configurator):
             let composeViewController = ComposeViewController.fromNib()
             let navigationController = UINavigationController(rootViewController: composeViewController)
 
+            // TODO: Get rid of popover
+
             composeViewController.networkService = networkService
+            composeViewController.databaseService = databaseService
+            composeViewController.configurator = configurator
             navigationController.modalPresentationStyle = .popover
             navigationController.popoverPresentationController?.barButtonItem = barButtonItem
             navigationController.presentationController?.delegate = composeViewController
 
             return navigationController
+
+        case .scan(let completion):
+            let scanViewController = ScanViewController()
+
+            scanViewController.scanService = QRCodeScanner()
+            scanViewController.completion = completion
+
+            return scanViewController
         }
     }
 
     var networkService: NetworkService {
         switch self {
-        case .main:
-            fatalError("No `networkService` dependency available for `main` target.")
+        case .main, .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
         case .compose:
             let provider = MoyaProvider<PushoverAPI>(callbackQueue: callbackQueue,
+                                                     manager: MoyaProvider<PushoverAPI>.customAlamofireManager(),
                                                      plugins: [plugin],
                                                      trackInflights: true)
             return PushoverNetworkService(provider: provider)
         }
     }
 
-    var databaseService: DatabaseService {
-        fatalError("Not implemented yet")
+    var databaseService: AnyDatabaseService<HistoryItem> {
+        switch self {
+        case .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
+        case .main, .compose:
+            let databaseService = RealmDatabaseService<HistoryItemModelObject>()
+            return AnyDatabaseService(databaseService)
+        }
     }
 
     private var callbackQueue: DispatchQueue {
         switch self {
-        case .main: fatalError("No `callbackQueue` dependency available for `main` target.")
-        case .compose: return DispatchQueue.global(qos: .userInitiated)
+        case .main, .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
+        case .compose:
+            return DispatchQueue.global(qos: .userInitiated)
         }
     }
 
     private var plugin: PluginType {
         switch self {
-        case .main:
-            fatalError("No `plugin` dependency available for `main` target.")
+        case .main, .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
         case .compose:
             return NetworkActivityPlugin { change, _ in
                 let isIndicatorVisible = change == .began

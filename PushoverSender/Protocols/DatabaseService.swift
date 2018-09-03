@@ -8,4 +8,19 @@
 
 import Foundation
 
-protocol DatabaseService {}
+protocol DatabaseService {
+
+    // MARK: - Typealiases
+
+    associatedtype DatabaseItem
+
+    typealias Completion = ([DatabaseItem], Diff) -> Void
+
+    // MARK: - Protocol requirements
+
+    func save(_ object: DatabaseItem) throws
+
+    func delete(_ object: DatabaseItem) throws
+
+    func observeChanges(sorted: SortOption?, predicate: NSPredicate?, completion: @escaping Completion)
+}

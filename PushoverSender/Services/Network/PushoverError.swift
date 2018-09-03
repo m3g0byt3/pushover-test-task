@@ -10,5 +10,7 @@ import Foundation
 
 struct PushoverError: Error, LocalizedError {
 
+    // MARK: - LocalizedError protocol conformance
+
     let errorDescription: String?
 }
