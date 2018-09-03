@@ -61,6 +61,10 @@ class MessageTextView: UITextView {
         setupNotification()
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     // MARK: - Public API
 
     override func updateConstraints() {
