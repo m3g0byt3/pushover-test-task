@@ -12,5 +12,5 @@ protocol Assembly {
 
     var scene: Presentable { get }
     var networkService: NetworkService { get }
-    var databaseService: DatabaseService { get }
+    var databaseService: AnyDatabaseService<HistoryItem> { get }
 }

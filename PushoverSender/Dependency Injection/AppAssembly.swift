@@ -47,7 +47,10 @@ enum AppAssembly: Assembly {
             let composeViewController = ComposeViewController.fromNib()
             let navigationController = UINavigationController(rootViewController: composeViewController)
 
+            // TODO: Get rid of popover
+
             composeViewController.networkService = networkService
+            composeViewController.databaseService = databaseService
             composeViewController.configurator = configurator
             navigationController.modalPresentationStyle = .popover
             navigationController.popoverPresentationController?.barButtonItem = barButtonItem
@@ -77,8 +80,14 @@ enum AppAssembly: Assembly {
         }
     }
 
-    var databaseService: DatabaseService {
-        fatalError("Not implemented yet")
+    var databaseService: AnyDatabaseService<HistoryItem> {
+        switch self {
+        case .scan:
+            fatalError("No \"\(#function)\" dependency available for this target.")
+        case .main, .compose:
+            let databaseService = RealmDatabaseService<HistoryItemModelObject>()
+            return AnyDatabaseService(databaseService)
+        }
     }
 
     private var callbackQueue: DispatchQueue {

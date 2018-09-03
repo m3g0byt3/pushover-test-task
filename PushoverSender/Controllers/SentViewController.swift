@@ -19,6 +19,8 @@ final class SentViewController: UIViewController, Presentable {
 
     var configurator: Configurator<AppAssembly>?
 
+    var databaseService: AnyDatabaseService<HistoryItem>!
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
