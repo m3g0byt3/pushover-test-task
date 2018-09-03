@@ -15,7 +15,7 @@ final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelOb
 
     // MARK: - Private properties
 
-    private var token: NotificationToken?
+    private var tokens = [NotificationToken?]()
     private let configuration: Realm.Configuration
 
     // MARK: - Initialization
@@ -25,7 +25,7 @@ final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelOb
     }
 
     deinit {
-        token?.invalidate()
+        tokens.forEach { $0?.invalidate() }
     }
 
     // MARK: - DatabaseService protocol conformance
@@ -57,27 +57,29 @@ final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelOb
             results = results?.filter(predicate)
         }
 
-        token = results?.observe() { changes in
+        let token = results?.observe { changes in
             switch changes {
 
-            case .initial(let some):
-                let mapped = Array(some).map { $0.model }
+            case let.initial(objects):
+                let models = Array(objects).map { $0.model }
                 let diff = Diff.initial
 
-                completion(mapped, diff)
+                completion(models, diff)
 
-            case .update(let some, let deletions, let insertions, let modifications):
-                let mapped = Array(some).map { $0.model }
+            case let .update(objects, deletions, insertions, modifications):
+                let models = Array(objects).map { $0.model }
                 let diff = Diff.updates(deletions: deletions.map { IndexPath(row: $0, section: 0) },
                                         insertions: insertions.map { IndexPath(row: $0, section: 0) },
                                         modifications: modifications.map { IndexPath(row: $0, section: 0) })
 
-                completion(mapped, diff)
+                completion(models, diff)
 
             case .error:
                 // TODO: Handle an error
                 break
             }
         }
+
+        tokens.append(token)
     }
 }
