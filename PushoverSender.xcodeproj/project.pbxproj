@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		36421C7B184ACDC3D1F525BE /* Pods_PushoverSender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70AF4AC909D3F750AF40561 /* Pods_PushoverSender.framework */; };
+		41018850213D43C300BFBB75 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884F213D43C300BFBB75 /* APIResponse.swift */; };
 		41164D23213AB8A200A2548E /* SentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D22213AB8A200A2548E /* SentViewController.xib */; };
 		41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D24213AB8AF00A2548E /* ScheduledViewController.xib */; };
 		41164D27213AB91C00A2548E /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D26213AB91C00A2548E /* Configurator.swift */; };
@@ -20,9 +21,6 @@
 		41692D1B213AD26200752765 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1A213AD26200752765 /* Recipient.swift */; };
 		41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1C213AFA2300752765 /* PushoverAPI.swift */; };
 		41692D1F213B140900752765 /* PushoverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1E213B140900752765 /* PushoverError.swift */; };
-		41692D21213B1E0500752765 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D20213B1E0500752765 /* MessageResponse.swift */; };
-		41692D25213B1E2200752765 /* VerificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D24213B1E2200752765 /* VerificationResponse.swift */; };
-		41692D29213B1FEA00752765 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D28213B1FEA00752765 /* ErrorResponse.swift */; };
 		41692D2B213B331900752765 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D2A213B331900752765 /* Array+Extensions.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
@@ -46,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		01786F4A17AA3E7E9F8DE40A /* Pods-PushoverSender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushoverSender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender.debug.xcconfig"; sourceTree = "<group>"; };
+		4101884F213D43C300BFBB75 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		41164D22213AB8A200A2548E /* SentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentViewController.xib; sourceTree = "<group>"; };
 		41164D24213AB8AF00A2548E /* ScheduledViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduledViewController.xib; sourceTree = "<group>"; };
 		41164D26213AB91C00A2548E /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
@@ -58,9 +57,6 @@
 		41692D1A213AD26200752765 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		41692D1C213AFA2300752765 /* PushoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverAPI.swift; sourceTree = "<group>"; };
 		41692D1E213B140900752765 /* PushoverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverError.swift; sourceTree = "<group>"; };
-		41692D20213B1E0500752765 /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
-		41692D24213B1E2200752765 /* VerificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationResponse.swift; sourceTree = "<group>"; };
-		41692D28213B1FEA00752765 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		41692D2A213B331900752765 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,9 +145,7 @@
 			children = (
 				41692D1A213AD26200752765 /* Recipient.swift */,
 				41692D16213ACF2600752765 /* Message.swift */,
-				41692D20213B1E0500752765 /* MessageResponse.swift */,
-				41692D24213B1E2200752765 /* VerificationResponse.swift */,
-				41692D28213B1FEA00752765 /* ErrorResponse.swift */,
+				4101884F213D43C300BFBB75 /* APIResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,16 +401,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41692D21213B1E0500752765 /* MessageResponse.swift in Sources */,
 				41C4C91A213C320B002E3548 /* ScanServiceDelegate.swift in Sources */,
 				41164D27213AB91C00A2548E /* Configurator.swift in Sources */,
+				41018850213D43C300BFBB75 /* APIResponse.swift in Sources */,
 				41BC6E03213AAEEE00EF6EFA /* NetworkService.swift in Sources */,
 				41692D2B213B331900752765 /* Array+Extensions.swift in Sources */,
 				41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */,
 				41BC6DFF213AAE0900EF6EFA /* Assembly.swift in Sources */,
 				41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */,
 				41275C3B213BF9BD009A4F4B /* ScanService.swift in Sources */,
-				41692D29213B1FEA00752765 /* ErrorResponse.swift in Sources */,
 				41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */,
 				41C4C914213C2124002E3548 /* MessageTextView.swift in Sources */,
 				41C4C912213BFD51002E3548 /* QRCodeScanner.swift in Sources */,
@@ -431,7 +424,6 @@
 				41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
 				41692D1F213B140900752765 /* PushoverError.swift in Sources */,
-				41692D25213B1E2200752765 /* VerificationResponse.swift in Sources */,
 				41BC6E01213AAE5D00EF6EFA /* Presentable.swift in Sources */,
 				41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */,
 				41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */,

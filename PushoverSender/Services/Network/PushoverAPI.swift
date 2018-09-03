@@ -55,7 +55,7 @@ enum PushoverAPI: TargetType {
                 "user": message.recipient.key,
                 "device": message.recipient.device ?? "",
                 "title": message.title,
-                "message": message.message
+                "message": message.text
             ]
 
         case .verify(let recipient):

@@ -18,6 +18,8 @@ enum Constants {
     // MARK: - Constants
 
     enum Interface {
+        static let errorTitle = "Error"
+        static let errorMessage = "An error has occurred:\n"
         static let alertCloseButtonTitle = "OK"
         static let sentTitle = "Sent"
         static let scheduledTitle = "Scheduled"

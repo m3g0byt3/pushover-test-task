@@ -14,5 +14,5 @@ struct Message {
 
     let recipient: Recipient
     let title: String
-    let message: String
+    let text: String
 }

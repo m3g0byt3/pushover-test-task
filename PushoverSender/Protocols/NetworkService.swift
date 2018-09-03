@@ -9,26 +9,14 @@
 import Foundation
 import Result
 
-typealias NetworkService = MessagingService & VerificationService
-
-protocol MessagingService {
+protocol NetworkService {
 
     // MARK: - Typealiases
 
-    typealias Completion = (Result<MessageResponse, AnyError>) -> Void
+    typealias Completion = (Result<APIResponse, AnyError>) -> Void
 
     // MARK: - Protocol requirements
 
     func send(message: Message, completion: @escaping Completion)
-}
-
-protocol VerificationService {
-
-    // MARK: - Typealiases
-
-    typealias Completion = (Result<VerificationResponse, AnyError>) -> Void
-
-    // MARK: - Protocol requirements
-
     func verify(recipient: Recipient, completion: @escaping Completion)
 }

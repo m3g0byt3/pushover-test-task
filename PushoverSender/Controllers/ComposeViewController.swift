@@ -33,7 +33,7 @@ final class ComposeViewController: UIViewController, Presentable {
         else { return nil }
         return Message(recipient: Recipient(key: key, device: nil),
                        title: title,
-                       message: message)
+                       text: message)
     }
 
     // MARK: - Public properties
@@ -100,16 +100,20 @@ final class ComposeViewController: UIViewController, Presentable {
 
     private func performNetworkRequest(for message: Message) {
         networkService.send(message: message) { [weak self] result in
+            let alertData: (title: String, message: String)
+
             switch result {
             case .success(let response):
-                let parentViewController = self?.navigationController?.presentingViewController
-                self?.navigationController?.dismiss(animated: true)
-                parentViewController?.presentAlert(title: "Done",
-                                                   message: "Message sent successfully with token: \(response.request)")
+                alertData = (response.title, response.message)
             case .failure(let error):
-                self?.presentAlert(title: "Error",
-                                   message: "Unable to send message due to error: \(error.localizedDescription)")
+                alertData = (Constants.Interface.errorTitle,
+                             Constants.Interface.errorMessage + error.localizedDescription)
             }
+            // Close this view controller and then show alert
+            let parentViewController = self?.navigationController?.presentingViewController
+            self?.navigationController?.dismiss(animated: true)
+            parentViewController?.presentAlert(title: alertData.title,
+                                               message: alertData.message)
         }
     }
 
