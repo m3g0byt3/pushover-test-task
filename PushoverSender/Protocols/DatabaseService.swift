@@ -10,9 +10,13 @@ import Foundation
 
 protocol DatabaseService {
 
+    typealias Completion = ([DatabaseItem], Diff) -> Void
+
     associatedtype DatabaseItem
 
     func save(_ object: DatabaseItem) throws
 
     func delete(_ object: DatabaseItem) throws
+
+    func observeChanges(sorted: SortOption?, predicate: NSPredicate?, completion: @escaping Completion)
 }

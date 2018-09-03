@@ -19,8 +19,11 @@ struct HistoryItem {
     let message: Message
     let isSuccessful: Bool
     let date: Date
+}
 
-    // MARK: - Initialization
+// MARK: - Convenience Initializers
+
+extension HistoryItem {
 
     init(message: Message, response: APIResponse) {
         self.message = message
@@ -34,6 +37,8 @@ struct HistoryItem {
         self.date = Date()
     }
 }
+
+// MARK: - Model protocol conformance
 
 extension HistoryItem: Model {
 

@@ -36,6 +36,9 @@ import RealmSwift
 extension HistoryItemModelObject: ModelObject {
 
     var model: HistoryItem {
-        fatalError("Not implemented yet")
+        let recipient = Recipient(key: recipientKey, device: nil)
+        let message = Message(recipient: recipient, title: title, text: text)
+
+        return HistoryItem(message: message, isSuccessful: isSuccessful, date: date)
     }
 }

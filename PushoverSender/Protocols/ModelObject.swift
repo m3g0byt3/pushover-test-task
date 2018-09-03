@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Adopted by persistence object instance (e.g CoreData NSManagedObject / Realm Object)
+/// Adopted by persistence object subclass (e.g CoreData NSManagedObject / Realm Object)
 protocol ModelObject {
 
     associatedtype Model
