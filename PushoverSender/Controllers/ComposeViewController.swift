@@ -51,6 +51,13 @@ final class ComposeViewController: UIViewController, Presentable {
     var databaseService: AnyDatabaseService<HistoryItem>!
     // swiftlint:disable:previous implicitly_unwrapped_optional
 
+    // MARK: - Public properties
+
+    override var preferredContentSize: CGSize {
+        get { return Constants.ComposeScene.preferredContentSize }
+        set { super.preferredContentSize = newValue }
+    }
+
     // MARK: - Private properties
 
     private var message: Message? {
@@ -71,9 +78,6 @@ final class ComposeViewController: UIViewController, Presentable {
         setupUI()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        preferredContentSize = calculatePreferredContentSize()
     }
 
     // MARK: - Private API
@@ -82,13 +86,7 @@ final class ComposeViewController: UIViewController, Presentable {
         // TODO: Disable send button when no valid input provided
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
-    }
-
-    private func calculatePreferredContentSize() -> CGSize {
-        let convertedFrame = view.convert(scheduleSwitch.frame, from: scheduleSwitch)
-        let width = super.preferredContentSize.width
-        let height = convertedFrame.maxY
-        return CGSize(width: width, height: height)
+        messageTextView.inputAccessoryItems.insert(scanButton, at: 0)
     }
 
     private func performNetworkRequest(for message: Message?) {

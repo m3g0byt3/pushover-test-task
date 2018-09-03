@@ -20,6 +20,8 @@ enum Constants {
     enum ComposeScene {
         static let errorTitle = "Error"
         static let errorMessage = "An error has occurred:\n"
+        static let preferredContentSize = CGSize(width: UIScreen.main.bounds.width,
+                                                 height: UIScreen.main.bounds.height / 3.0)
     }
 
     enum SentScene {
