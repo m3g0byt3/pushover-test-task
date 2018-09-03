@@ -18,7 +18,6 @@
 		4101884E213D24F400BFBB75 /* AnyDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */; };
 		41018850213D43C300BFBB75 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101884F213D43C300BFBB75 /* APIResponse.swift */; };
 		41164D23213AB8A200A2548E /* SentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D22213AB8A200A2548E /* SentViewController.xib */; };
-		41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41164D24213AB8AF00A2548E /* ScheduledViewController.xib */; };
 		41164D27213AB91C00A2548E /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D26213AB91C00A2548E /* Configurator.swift */; };
 		41164D2A213ABED400A2548E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D29213ABED400A2548E /* R.generated.swift */; };
 		41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */; };
@@ -31,13 +30,14 @@
 		41692D1F213B140900752765 /* PushoverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D1E213B140900752765 /* PushoverError.swift */; };
 		41692D2B213B331900752765 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41692D2A213B331900752765 /* Array+Extensions.swift */; };
 		41A8C14C213DA02E00F742A7 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8C14B213DA02E00F742A7 /* Configurable.swift */; };
+		41A8C14E213DF08800F742A7 /* Dismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8C14D213DF08800F742A7 /* Dismissable.swift */; };
+		41A8C152213DF6F000F742A7 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8C151213DF6F000F742A7 /* Customizable.swift */; };
 		41BC6DD2213A97B800EF6EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */; };
 		41BC6DD4213A97B800EF6EFA /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DD3213A97B800EF6EFA /* SentViewController.swift */; };
 		41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DD8213A97B900EF6EFA /* Assets.xcassets */; };
 		41BC6DEB213A98D200EF6EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DE9213A98D200EF6EFA /* LaunchScreen.storyboard */; };
 		41BC6DEF213AA39D00EF6EFA /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DEE213AA39D00EF6EFA /* UIViewController+Extensions.swift */; };
 		41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF0213AA3CA00EF6EFA /* Constants.swift */; };
-		41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */; };
 		41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */; };
 		41BC6DF7213AA4D400EF6EFA /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */; };
 		41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC6DFB213AADE900EF6EFA /* AppAssembly.swift */; };
@@ -68,7 +68,6 @@
 		4101884D213D24F400BFBB75 /* AnyDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDatabaseService.swift; sourceTree = "<group>"; };
 		4101884F213D43C300BFBB75 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		41164D22213AB8A200A2548E /* SentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentViewController.xib; sourceTree = "<group>"; };
-		41164D24213AB8AF00A2548E /* ScheduledViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduledViewController.xib; sourceTree = "<group>"; };
 		41164D26213AB91C00A2548E /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		41164D29213ABED400A2548E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41164D2B213AC92A00A2548E /* PushoverNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverNetworkService.swift; sourceTree = "<group>"; };
@@ -81,6 +80,8 @@
 		41692D1E213B140900752765 /* PushoverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushoverError.swift; sourceTree = "<group>"; };
 		41692D2A213B331900752765 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		41A8C14B213DA02E00F742A7 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		41A8C14D213DF08800F742A7 /* Dismissable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismissable.swift; sourceTree = "<group>"; };
+		41A8C151213DF6F000F742A7 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
 		41BC6DCE213A97B800EF6EFA /* PushoverSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushoverSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC6DD1213A97B800EF6EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41BC6DD3213A97B800EF6EFA /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		41BC6DEA213A98D200EF6EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41BC6DEE213AA39D00EF6EFA /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		41BC6DF0213AA3CA00EF6EFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledViewController.swift; sourceTree = "<group>"; };
 		41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		41BC6DFB213AADE900EF6EFA /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -214,8 +214,6 @@
 			children = (
 				41BC6DD3213A97B800EF6EFA /* SentViewController.swift */,
 				41164D22213AB8A200A2548E /* SentViewController.xib */,
-				41BC6DF2213AA4C500EF6EFA /* ScheduledViewController.swift */,
-				41164D24213AB8AF00A2548E /* ScheduledViewController.xib */,
 				41BC6DF4213AA4D400EF6EFA /* ComposeViewController.swift */,
 				41BC6DF5213AA4D400EF6EFA /* ComposeViewController.xib */,
 				41275C38213BF97E009A4F4B /* ScanViewController.swift */,
@@ -267,6 +265,8 @@
 				41018844213D14C300BFBB75 /* ModelObject.swift */,
 				4101884A213D1C8600BFBB75 /* Model.swift */,
 				41A8C14B213DA02E00F742A7 /* Configurable.swift */,
+				41A8C151213DF6F000F742A7 /* Customizable.swift */,
+				41A8C14D213DF08800F742A7 /* Dismissable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -369,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41164D25213AB8AF00A2548E /* ScheduledViewController.xib in Resources */,
 				41164D23213AB8A200A2548E /* SentViewController.xib in Resources */,
 				41BC6DEB213A98D200EF6EFA /* LaunchScreen.storyboard in Resources */,
 				41BC6DD9213A97B900EF6EFA /* Assets.xcassets in Resources */,
@@ -436,6 +435,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PushoverSender/Pods-PushoverSender-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -446,6 +446,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -488,10 +489,10 @@
 				41BC6DF6213AA4D400EF6EFA /* ComposeViewController.swift in Sources */,
 				41BC6DF1213AA3CA00EF6EFA /* Constants.swift in Sources */,
 				41A8C14C213DA02E00F742A7 /* Configurable.swift in Sources */,
+				41A8C152213DF6F000F742A7 /* Customizable.swift in Sources */,
 				41BC6DFC213AADE900EF6EFA /* AppAssembly.swift in Sources */,
 				41692D1D213AFA2300752765 /* PushoverAPI.swift in Sources */,
 				41164D2C213AC92A00A2548E /* PushoverNetworkService.swift in Sources */,
-				41BC6DF3213AA4C500EF6EFA /* ScheduledViewController.swift in Sources */,
 				41275C37213BF83D009A4F4B /* UIResponder+Extensions.swift in Sources */,
 				41692D17213ACF2600752765 /* Message.swift in Sources */,
 				41692D1F213B140900752765 /* PushoverError.swift in Sources */,
@@ -501,6 +502,7 @@
 				41018845213D14C300BFBB75 /* ModelObject.swift in Sources */,
 				4101883F213D0BE700BFBB75 /* RealmDatabaseService.swift in Sources */,
 				41C4C916213C2FA7002E3548 /* ScannerError.swift in Sources */,
+				41A8C14E213DF08800F742A7 /* Dismissable.swift in Sources */,
 				4101884E213D24F400BFBB75 /* AnyDatabaseService.swift in Sources */,
 				41BC6E05213AAF0300EF6EFA /* DatabaseService.swift in Sources */,
 				41275C39213BF97E009A4F4B /* ScanViewController.swift in Sources */,

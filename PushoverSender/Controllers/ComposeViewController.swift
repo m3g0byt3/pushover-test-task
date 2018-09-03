@@ -6,6 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+// TODO: Disable send button when no valid input provided
+
 import Foundation
 import UIKit
 
@@ -16,8 +18,6 @@ final class ComposeViewController: UIViewController, Presentable {
     @IBOutlet private weak var recipientTextField: UITextField!
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var messageTextView: MessageTextView!
-    @IBOutlet private weak var scheduleSwitch: UISwitch!
-    @IBOutlet private weak var scheduleLabel: UILabel!
 
     private lazy var sendButton: UIBarButtonItem = {
         let selector = #selector(barButtonHandler(_:))
@@ -36,11 +36,6 @@ final class ComposeViewController: UIViewController, Presentable {
         return UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
     }()
 
-    private lazy var doneButton: UIBarButtonItem = {
-        let selector = #selector(barButtonHandler(_:))
-        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: selector)
-    }()
-
     private var firstResponders: [UIResponder] {
         return [recipientTextField, titleTextField, messageTextView]
     }
@@ -57,6 +52,13 @@ final class ComposeViewController: UIViewController, Presentable {
     /// Database service, provides persistence
     var databaseService: AnyDatabaseService<HistoryItem>!
     // swiftlint:disable:previous implicitly_unwrapped_optional
+
+    // MARK: - Public properties
+
+    override var preferredContentSize: CGSize {
+        get { return Constants.ComposeScene.preferredContentSize }
+        set { super.preferredContentSize = newValue }
+    }
 
     // MARK: - Private properties
 
@@ -78,26 +80,13 @@ final class ComposeViewController: UIViewController, Presentable {
         setupUI()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        preferredContentSize = calculatePreferredContentSize()
-    }
-
     // MARK: - Private API
 
     private func setupUI() {
-        // TODO: Disable send button when no valid input provided
-        scheduleSwitch.addTarget(self, action: #selector(scheduleSwitchHandler(_:)), for: .valueChanged)
+        edgesForExtendedLayout = []
         navigationItem.rightBarButtonItem = sendButton
         navigationItem.leftBarButtonItem = cancelButton
-        messageTextView.inputAccessoryItems = [UIBarButtonItem.flexibleSpace, scanButton, doneButton]
-    }
-
-    private func calculatePreferredContentSize() -> CGSize {
-        let convertedFrame = view.convert(scheduleSwitch.frame, from: scheduleSwitch)
-        let width = super.preferredContentSize.width
-        let height = convertedFrame.maxY
-        return CGSize(width: width, height: height)
+        messageTextView.inputAccessoryItems.insert(scanButton, at: 0)
     }
 
     private func performNetworkRequest(for message: Message?) {
@@ -105,7 +94,7 @@ final class ComposeViewController: UIViewController, Presentable {
         networkService.send(message: message) { [weak self] result in
             let alertData: (title: String, message: String)
             let historyItem: HistoryItem
-
+            // Extract data from result
             switch result {
             case .success(let response):
                 historyItem = HistoryItem(message: message, response: response)
@@ -141,17 +130,9 @@ final class ComposeViewController: UIViewController, Presentable {
         switch sender {
         case sendButton: performNetworkRequest(for: message)
         case cancelButton: navigationController?.dismiss(animated: true)
-        case doneButton: UIResponder.current?.resignFirstResponder()
         case scanButton: showScanner()
         default: break
         }
-    }
-
-    @objc private func scheduleSwitchHandler(_ sender: UISwitch) {
-        // TODO: Add actual implementation
-        scheduleLabel.textColor = sender.isOn ? .black : .lightGray
-    }
-
     }
 }
 

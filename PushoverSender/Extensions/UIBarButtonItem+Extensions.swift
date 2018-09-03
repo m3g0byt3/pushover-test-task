@@ -18,4 +18,13 @@ extension UIBarButtonItem {
     static var fixedSpace: UIBarButtonItem {
         return UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
     }
+
+    static var dismissButton: UIBarButtonItem {
+        let selector = #selector(dismissHandler(_:))
+        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: selector)
+    }
+
+    @objc private static func dismissHandler(_ sender: UIBarButtonItem) {
+        UIResponder.current?.resignFirstResponder()
+    }
 }

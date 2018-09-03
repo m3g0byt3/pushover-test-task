@@ -108,6 +108,8 @@ extension QRCodeScanner: AVCaptureMetadataOutputObjectsDelegate {
             let value = object.stringValue
         else { return }
 
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+
         DispatchQueue.main.async {
             self.delegate?.scanner(self, didRecognizedCode: value)
         }

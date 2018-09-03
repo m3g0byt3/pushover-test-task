@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Moya
+import PKHUD
 
 enum AppAssembly: Assembly {
 
@@ -23,32 +24,20 @@ enum AppAssembly: Assembly {
 
         case .main(let configurator):
             let sentViewController = SentViewController.fromNib()
-            let scheduledViewController = ScheduledViewController.fromNib()
-            let tabBarController = UITabBarController()
 
             sentViewController.databaseService = databaseService
             sentViewController.navigationItem.title = Constants.SentScene.title
-            scheduledViewController.navigationItem.title = Constants.ScheduledScene.title
             sentViewController.configurator = configurator
 
             sentViewController.tabBarItem = UITabBarItem(title: Constants.SentScene.title,
                                                          image: R.image.sent(),
                                                          selectedImage: nil)
 
-            scheduledViewController.tabBarItem = UITabBarItem(title: Constants.ScheduledScene.title,
-                                                              image: R.image.scheduled(),
-                                                              selectedImage: nil)
-
-            tabBarController.viewControllers = [sentViewController, scheduledViewController]
-                .map(UINavigationController.init)
-
-            return tabBarController
+            return UINavigationController(rootViewController: sentViewController)
 
         case let .compose(barButtonItem, configurator):
             let composeViewController = ComposeViewController.fromNib()
             let navigationController = UINavigationController(rootViewController: composeViewController)
-
-            // TODO: Get rid of popover
 
             composeViewController.networkService = networkService
             composeViewController.databaseService = databaseService
@@ -107,9 +96,16 @@ enum AppAssembly: Assembly {
             fatalError("No \"\(#function)\" dependency available for this target.")
         case .compose:
             return NetworkActivityPlugin { change, _ in
-                let isIndicatorVisible = change == .began
                 DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = isIndicatorVisible
+                    switch change {
+                    case .began:
+                        UIResponder.current?.resignFirstResponder()
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                        HUD.show(.progress)
+                    case .ended:
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        HUD.hide()
+                    }
                 }
             }
         }

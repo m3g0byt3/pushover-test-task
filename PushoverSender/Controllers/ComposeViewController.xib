@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,74 +15,71 @@
             <connections>
                 <outlet property="messageTextView" destination="1Gs-aI-FlI" id="eCD-LJ-7F2"/>
                 <outlet property="recipientTextField" destination="9rz-AR-aHF" id="uVh-FR-IjY"/>
-                <outlet property="scheduleLabel" destination="jAe-i0-M7L" id="pAt-9B-5ka"/>
-                <outlet property="scheduleSwitch" destination="vXU-EV-Bhl" id="ndk-zG-7LO"/>
                 <outlet property="titleTextField" destination="i7t-pA-p4v" id="869-v8-kTx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
+            <rect key="frame" x="0.0" y="0.0" width="385" height="213"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3um-yd-6TM">
-                    <rect key="frame" x="16" y="60" width="343" height="172"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcR-Ga-UFR">
+                    <rect key="frame" x="16" y="44" width="353" height="169"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message recipient" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9rz-AR-aHF">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="4r8-ef-paK"/>
-                            </connections>
-                        </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i7t-pA-p4v">
-                            <rect key="frame" x="0.0" y="46" width="343" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="SEm-R1-MkT"/>
-                            </connections>
-                        </textField>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Gs-aI-FlI" customClass="MessageTextView" customModule="PushoverSender" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="92" width="343" height="33"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Message text"/>
-                            </userDefinedRuntimeAttributes>
-                        </textView>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HDE-8S-kjb">
-                            <rect key="frame" x="0.0" y="141" width="343" height="31"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3um-yd-6TM">
+                            <rect key="frame" x="8" y="8" width="337" height="153"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAe-i0-M7L">
-                                    <rect key="frame" x="0.0" y="0.0" width="278" height="31"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vXU-EV-Bhl">
-                                    <rect key="frame" x="294" y="0.0" width="51" height="31"/>
-                                </switch>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message recipient" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9rz-AR-aHF">
+                                    <rect key="frame" x="0.0" y="0.0" width="337" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="4r8-ef-paK"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="i7t-pA-p4v">
+                                    <rect key="frame" x="0.0" y="46" width="337" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="SEm-R1-MkT"/>
+                                    </connections>
+                                </textField>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Gs-aI-FlI" customClass="MessageTextView" customModule="PushoverSender" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="92" width="337" height="61"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Message text"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textView>
                             </subviews>
                         </stackView>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3um-yd-6TM" firstAttribute="top" secondItem="TcR-Ga-UFR" secondAttribute="topMargin" id="9IA-e7-fiP"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="3um-yd-6TM" secondAttribute="bottom" id="F6B-tg-hw7"/>
+                        <constraint firstItem="3um-yd-6TM" firstAttribute="leading" secondItem="TcR-Ga-UFR" secondAttribute="leadingMargin" id="Ou7-cC-iDj"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="3um-yd-6TM" secondAttribute="trailing" id="whF-t0-SIp"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3um-yd-6TM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="CJV-Qv-HYC"/>
-                <constraint firstItem="3um-yd-6TM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="no2-j4-tJs"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3um-yd-6TM" secondAttribute="trailing" constant="16" id="p4S-63-BKX"/>
+                <constraint firstItem="TcR-Ga-UFR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="99x-US-5Hj"/>
+                <constraint firstAttribute="trailingMargin" secondItem="TcR-Ga-UFR" secondAttribute="trailing" id="ayJ-1T-aMh"/>
+                <constraint firstItem="TcR-Ga-UFR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="emA-Vg-yqD"/>
+                <constraint firstAttribute="bottomMargin" secondItem="TcR-Ga-UFR" secondAttribute="bottom" id="f7i-xE-crC"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="33.5" y="-158"/>
+            <point key="canvasLocation" x="-140.5" y="-239.5"/>
         </view>
     </objects>
 </document>
