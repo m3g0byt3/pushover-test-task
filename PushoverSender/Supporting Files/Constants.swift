@@ -48,5 +48,6 @@ enum Constants {
         static let apiToken = "af33c32b5wpe4aiusfx8eydu6e7ah5"
         static let baseURLHost = "api.pushover.net"
         static let baseURLScheme = "https"
+        static let timeout: TimeInterval = 5.0
     }
 }

@@ -71,6 +71,7 @@ enum AppAssembly: Assembly {
             fatalError("No \"\(#function)\" dependency available for this target.")
         case .compose:
             let provider = MoyaProvider<PushoverAPI>(callbackQueue: callbackQueue,
+                                                     manager: MoyaProvider<PushoverAPI>.customAlamofireManager(),
                                                      plugins: [plugin],
                                                      trackInflights: true)
             return PushoverNetworkService(provider: provider)
