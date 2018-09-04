@@ -78,6 +78,7 @@ final class ComposeViewController: UIViewController, Presentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        recipientTextField.becomeFirstResponder()
     }
 
     // MARK: - Private API
