@@ -123,6 +123,7 @@ extension ScanViewController: ScanServiceDelegate {
         view.layer.insertSublayer(layer, below: cancelButton.layer)
         scanService.start()
         previewLayer = layer
+        view.setNeedsLayout()
     }
 
     func scanner(_ scanner: ScanService, didRecognizedCode value: String) {
