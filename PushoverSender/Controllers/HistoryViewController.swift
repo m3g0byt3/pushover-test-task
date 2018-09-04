@@ -49,6 +49,7 @@ final class HistoryViewController: UIViewController, Presentable {
         tableView.register(R.nib.historyCell)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.allowsSelection = false
         tableView.estimatedRowHeight = Constants.HistoryScene.estimatedRowHeight
         tableView.emptyDataSetView { emptyDataSetView in
             emptyDataSetView.titleLabelString(Constants.HistoryScene.emptyTitle)

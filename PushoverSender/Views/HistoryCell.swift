@@ -25,6 +25,7 @@ final class HistoryCell: UITableViewCell {
     @IBOutlet private weak var dateTimeLabel: UILabel!
     @IBOutlet private weak var messageTitleLabel: UILabel!
     @IBOutlet private weak var messageTextLabel: UILabel!
+    @IBOutlet private weak var recipientLabel: UILabel!
 
     // MARK: - Public API
 
@@ -34,6 +35,7 @@ final class HistoryCell: UITableViewCell {
         dateTimeLabel.text = nil
         messageTitleLabel.text = nil
         messageTextLabel.text = nil
+        recipientLabel.text = nil
     }
 
     // MARK: - Public API
@@ -64,6 +66,7 @@ extension HistoryCell: Configurable {
         dateTimeLabel.text = formatter.string(from: date)
         messageTitleLabel.text = model.message.title
         messageTextLabel.text = model.message.text
+        recipientLabel.text = Constants.HistoryScene.recipientPrefix + model.message.recipient.key
 
         return self
     }

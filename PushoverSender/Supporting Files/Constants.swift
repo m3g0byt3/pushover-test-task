@@ -26,6 +26,7 @@ enum Constants {
 
     enum HistoryScene {
         static let title = "Messages"
+        static let recipientPrefix = "To "
         static let emptyTitle = NSAttributedString(string: "No recent messages")
         static let emptyText = NSAttributedString(string: "Press \"Compose\" button to send your first message.")
         static let sortKeyPath = #keyPath(HistoryItemModelObject.date)
