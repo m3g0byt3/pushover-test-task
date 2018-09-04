@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import EmptyDataSet_Swift
 
 final class SentViewController: UIViewController, Presentable {
 
@@ -44,10 +45,15 @@ final class SentViewController: UIViewController, Presentable {
     // MARK: - Private API
 
     private func setupUI() {
+        navigationItem.rightBarButtonItem = composeButton
         tableView.register(R.nib.historyCell)
+        tableView.tableFooterView = UIView(frame: .zero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constants.SentScene.estimatedRowHeight
-        navigationItem.rightBarButtonItem = composeButton
+        tableView.emptyDataSetView { emptyDataSetView in
+            emptyDataSetView.titleLabelString(Constants.SentScene.emptyTitle)
+                            .detailLabelString(Constants.SentScene.emptyText)
+        }
         if #available(iOS 11, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }

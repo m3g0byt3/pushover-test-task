@@ -26,12 +26,10 @@ enum Constants {
 
     enum SentScene {
         static let title = "Sent"
+        static let emptyTitle = NSAttributedString(string: "No recent messages")
+        static let emptyText = NSAttributedString(string: "Press \"Compose\" button to sent your first message.")
         static let sortKeyPath = #keyPath(HistoryItemModelObject.date)
         static let estimatedRowHeight: CGFloat = 60
-    }
-
-    enum ScheduledScene {
-        static let title = "Scheduled"
     }
 
     enum ScanScene {
