@@ -314,8 +314,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41BC6DE0213A97B900EF6EFA /* Build configuration list for PBXNativeTarget "PushoverSender" */;
 			buildPhases = (
-				41164D28213ABE8C00A2548E /* R.swift run script */,
 				15484924E60758E0F9A6CB16 /* [CP] Check Pods Manifest.lock */,
+				41164D28213ABE8C00A2548E /* R.swift run script */,
 				41BC6DCA213A97B800EF6EFA /* Sources */,
 				41BC6DEC213A990D00EF6EFA /* Run SwiftLint for debug builds */,
 				41BC6DCB213A97B800EF6EFA /* Frameworks */,
