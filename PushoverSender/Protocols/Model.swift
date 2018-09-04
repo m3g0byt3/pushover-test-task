@@ -8,10 +8,11 @@
 
 import Foundation
 
-/// Adopted by immutable struct
+/// Adopted by immutable struct.
 protocol Model {
 
     associatedtype ModelObject
 
+    /// Persistence representation (e.g CoreData NSManagedObject / Realm Object).
     var modelObject: ModelObject { get }
 }

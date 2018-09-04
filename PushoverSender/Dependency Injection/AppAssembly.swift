@@ -11,6 +11,7 @@ import UIKit
 import Moya
 import PKHUD
 
+/// Container with dependencies, provides data to the service locator.
 enum AppAssembly: Assembly {
 
     case main(Configurator<AppAssembly>?)
@@ -23,17 +24,13 @@ enum AppAssembly: Assembly {
         switch self {
 
         case .main(let configurator):
-            let sentViewController = SentViewController.fromNib()
+            let historyViewController = HistoryViewController.fromNib()
 
-            sentViewController.databaseService = databaseService
-            sentViewController.navigationItem.title = Constants.SentScene.title
-            sentViewController.configurator = configurator
+            historyViewController.databaseService = databaseService
+            historyViewController.navigationItem.title = Constants.HistoryScene.title
+            historyViewController.configurator = configurator
 
-            sentViewController.tabBarItem = UITabBarItem(title: Constants.SentScene.title,
-                                                         image: R.image.sent(),
-                                                         selectedImage: nil)
-
-            return UINavigationController(rootViewController: sentViewController)
+            return UINavigationController(rootViewController: historyViewController)
 
         case let .compose(barButtonItem, configurator):
             let composeViewController = ComposeViewController.fromNib()

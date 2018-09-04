@@ -11,15 +11,22 @@ import RealmSwift
 
 // TODO: Modify objects in background queue
 
+/// Generic implementation of `DatabaseService` protocol using Realm.
 final class RealmDatabaseService<T>: DatabaseService where T: Object, T: ModelObject, T.Model: Model {
 
     // MARK: - Private properties
 
+    /// Observation tokens.
     private var tokens = [NotificationToken?]()
+
+    /// Realm configuration.
     private let configuration: Realm.Configuration
 
     // MARK: - Initialization
 
+    /// Init with given Realm configuration.
+    /// - Parameter configuration: Realm configuration (default value = `.defaultConfiguration`)
+    /// - Returns: New `RealmDatabaseService` instance.
     init(configuration: Realm.Configuration = .defaultConfiguration) {
         self.configuration = configuration
     }

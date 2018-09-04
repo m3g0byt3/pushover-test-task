@@ -24,14 +24,13 @@ enum Constants {
                                                  height: UIScreen.main.bounds.height / 3.0)
     }
 
-    enum SentScene {
-        static let title = "Sent"
+    enum HistoryScene {
+        static let title = "Messages"
+        static let recipientPrefix = "To "
+        static let emptyTitle = NSAttributedString(string: "No recent messages")
+        static let emptyText = NSAttributedString(string: "Press \"Compose\" button to send your first message.")
         static let sortKeyPath = #keyPath(HistoryItemModelObject.date)
         static let estimatedRowHeight: CGFloat = 60
-    }
-
-    enum ScheduledScene {
-        static let title = "Scheduled"
     }
 
     enum ScanScene {
@@ -58,8 +57,6 @@ enum Constants {
 
     enum Network {
         static let apiToken = "af33c32b5wpe4aiusfx8eydu6e7ah5"
-        static let baseURLHost = "api.pushover.net"
-        static let baseURLScheme = "https"
         static let timeout: TimeInterval = 5.0
     }
 }

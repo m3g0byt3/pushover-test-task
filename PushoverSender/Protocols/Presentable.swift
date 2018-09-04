@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+/// Represents entity to present (e.g. `UIViewController`).
 protocol Presentable {
 
+    /// Entity to present.
     var presentableEntity: UIViewController { get }
 }
 

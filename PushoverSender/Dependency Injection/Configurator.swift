@@ -17,10 +17,14 @@ final class Configurator<A: Assembly> {
 
     // MARK: - Private properties
 
+    /// Scene mapping closure.
     private let sceneClosure: SceneClosure
 
     // MARK: - Initialization
 
+    /// Init with given Scene mapping closure.
+    /// - Parameter sceneClosure: Scene mapping closure.
+    /// - Returns: New service locator with given mapping closure.
     init(sceneClosure: @escaping SceneClosure = Configurator.sceneMapping) {
         self.sceneClosure = sceneClosure
     }
@@ -30,6 +34,9 @@ final class Configurator<A: Assembly> {
 
 extension Configurator {
 
+    /// Get requred scene.
+    /// - Parameter type: The type of scene.
+    /// - Returns: Scene (an instance that conforms to `Presentable` protocol).
     func getScene(_ type: A) -> Presentable {
         return sceneClosure(type)
     }

@@ -9,11 +9,24 @@
 import Foundation
 import QuartzCore
 
+/// Handle events from `ScanService` QR scanner.
 protocol ScanServiceDelegate: AnyObject {
 
+    /// Called when scanner unable to setup itself due to error.
+    /// - Parameters:
+    ///     - scanner: `ScanService` instance.
+    ///     - error: An error.
     func scanner(_ scanner: ScanService, didFailWith error: ScannerError)
 
+    /// Called when scanner successfully setup preview layer.
+    /// - Parameters:
+    ///     - scanner: `ScanService` instance.
+    ///     - layer: A preview layer.
     func scanner(_ scanner: ScanService, didSetupPreview layer: CALayer)
 
+    /// Called when scanner successfully recognized QR code.
+    /// - Parameters:
+    ///     - scanner: `ScanService` instance.
+    ///     - layer: QR code string value.
     func scanner(_ scanner: ScanService, didRecognizedCode value: String)
 }

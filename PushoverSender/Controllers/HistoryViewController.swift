@@ -1,5 +1,5 @@
 //
-//  SentViewController.swift
+//  HistoryViewController.swift
 //  PushoverSender
 //
 //  Created by m3g0byt3 on 01/09/2018.
@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import EmptyDataSet_Swift
 
-final class SentViewController: UIViewController, Presentable {
+/// Message history scene.
+final class HistoryViewController: UIViewController, Presentable {
 
     // MARK: - IBOutlets and UI
 
@@ -31,6 +33,7 @@ final class SentViewController: UIViewController, Presentable {
 
     // MARK: - Private properties
 
+    /// An array of immutable structs, represents sent messages.
     private var history = [HistoryItem]()
 
     // MARK: - Lifecycle
@@ -43,18 +46,26 @@ final class SentViewController: UIViewController, Presentable {
 
     // MARK: - Private API
 
+    /// Perform initial UI setup.
     private func setupUI() {
-        tableView.register(R.nib.historyCell)
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = Constants.SentScene.estimatedRowHeight
         navigationItem.rightBarButtonItem = composeButton
+        tableView.register(R.nib.historyCell)
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.allowsSelection = false
+        tableView.estimatedRowHeight = Constants.HistoryScene.estimatedRowHeight
+        tableView.emptyDataSetView { emptyDataSetView in
+            emptyDataSetView.titleLabelString(Constants.HistoryScene.emptyTitle)
+                            .detailLabelString(Constants.HistoryScene.emptyText)
+        }
         if #available(iOS 11, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
     }
 
+    /// Setup model observation for UI updates.
     private func setupObservation() {
-        let keyPath = Constants.SentScene.sortKeyPath
+        let keyPath = Constants.HistoryScene.sortKeyPath
         databaseService.observeChanges(sorted: .descending(keyPath: keyPath),
                                        predicate: nil,
                                        completion: { [weak self] history, diff in
@@ -65,6 +76,8 @@ final class SentViewController: UIViewController, Presentable {
 
     // MARK: - Control handlers
 
+    /// Control handler for an `UIBarButtonItem` instance.
+    /// - Parameter sender: `UIBarButtonItem` instance.
     @objc private func composeButtonHandler(_ sender: UIBarButtonItem) {
         let scene = configurator?.getScene(.compose(sender, configurator))
         guard let viewController = scene?.presentableEntity else { return }
@@ -74,7 +87,7 @@ final class SentViewController: UIViewController, Presentable {
 
 // MARK: - UITableViewDataSource protocol conformace
 
-extension SentViewController: UITableViewDataSource {
+extension HistoryViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return history.count

@@ -11,23 +11,32 @@ import UIKit
 
 extension UIViewController {
 
-    private static func _fromNib<T: UIViewController>() -> T {
-        let nibName = String(describing: self)
-        guard let viewController = self.init(nibName: nibName, bundle: nil) as? T else {
-            fatalError("Unable to init \(self) from NIB file \(nibName)")
-        }
-        return viewController
-    }
+    // MARK: - Public API
 
-    static func fromNib() -> Self {
-        return _fromNib()
-    }
-
+    /// Presents alert with given title and message.
+    /// - Parameters:
+    ///     - title: Alert title.
+    ///     - message: Alert message.
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let closeAction = UIAlertAction(title: Constants.Interface.alertCloseButtonTitle, style: .default)
 
         alert.addAction(closeAction)
         present(alert, animated: true)
+    }
+
+    /// Initialize instance of type `Self` from NIB.
+    static func fromNib() -> Self {
+        return _fromNib()
+    }
+
+    // MARK: - Private API
+
+    private static func _fromNib<T: UIViewController>() -> T {
+        let nibName = String(describing: self)
+        guard let viewController = self.init(nibName: nibName, bundle: nil) as? T else {
+            fatalError("Unable to init \(self) from NIB file \(nibName)")
+        }
+        return viewController
     }
 }

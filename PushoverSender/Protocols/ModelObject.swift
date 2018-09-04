@@ -13,5 +13,6 @@ protocol ModelObject {
 
     associatedtype Model
 
+    /// Immutable representation (e.g plain Struct).
     var model: Model { get }
 }

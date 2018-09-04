@@ -8,11 +8,15 @@
 
 import Foundation
 
+/// Container with dependencies, provides data to the service locator.
 protocol Assembly {
 
+    /// Scene dependency.
     var scene: Presentable { get }
 
+    /// `NetworkService` dependency.
     var networkService: NetworkService { get }
 
+    /// `DatabaseService` dependency.
     var databaseService: AnyDatabaseService<HistoryItem> { get }
 }

@@ -6,22 +6,24 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-// TODO: Replace string literals with constants
-
 import Foundation
 import Moya
 
+/// Moya target for PushoverAPI.
 enum PushoverAPI: TargetType {
 
+    /// Send message.
     case send(Message)
+
+    /// Verify recipient of message.
     case verify(Recipient)
 
     // MARK: - TargetType protocol conformance
 
     var baseURL: URL {
         var components = URLComponents()
-        components.scheme = Constants.Network.baseURLScheme
-        components.host = Constants.Network.baseURLHost
+        components.scheme = "https"
+        components.host = "api.pushover.net"
 
         guard let url = components.url else {
             fatalError("Unable to construct URL from components")
