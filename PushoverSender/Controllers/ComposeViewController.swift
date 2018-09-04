@@ -21,7 +21,7 @@ final class ComposeViewController: UIViewController, Presentable {
 
     private lazy var sendButton: UIBarButtonItem = {
         let selector = #selector(barButtonHandler(_:))
-        let image = R.image.sent()
+        let image = R.image.send()
         return UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
     }()
 
