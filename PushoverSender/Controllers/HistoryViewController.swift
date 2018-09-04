@@ -1,5 +1,5 @@
 //
-//  SentViewController.swift
+//  HistoryViewController.swift
 //  PushoverSender
 //
 //  Created by m3g0byt3 on 01/09/2018.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import EmptyDataSet_Swift
 
-final class SentViewController: UIViewController, Presentable {
+final class HistoryViewController: UIViewController, Presentable {
 
     // MARK: - IBOutlets and UI
 
@@ -49,10 +49,10 @@ final class SentViewController: UIViewController, Presentable {
         tableView.register(R.nib.historyCell)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = Constants.SentScene.estimatedRowHeight
+        tableView.estimatedRowHeight = Constants.HistoryScene.estimatedRowHeight
         tableView.emptyDataSetView { emptyDataSetView in
-            emptyDataSetView.titleLabelString(Constants.SentScene.emptyTitle)
-                            .detailLabelString(Constants.SentScene.emptyText)
+            emptyDataSetView.titleLabelString(Constants.HistoryScene.emptyTitle)
+                            .detailLabelString(Constants.HistoryScene.emptyText)
         }
         if #available(iOS 11, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
@@ -60,7 +60,7 @@ final class SentViewController: UIViewController, Presentable {
     }
 
     private func setupObservation() {
-        let keyPath = Constants.SentScene.sortKeyPath
+        let keyPath = Constants.HistoryScene.sortKeyPath
         databaseService.observeChanges(sorted: .descending(keyPath: keyPath),
                                        predicate: nil,
                                        completion: { [weak self] history, diff in
@@ -80,7 +80,7 @@ final class SentViewController: UIViewController, Presentable {
 
 // MARK: - UITableViewDataSource protocol conformace
 
-extension SentViewController: UITableViewDataSource {
+extension HistoryViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return history.count

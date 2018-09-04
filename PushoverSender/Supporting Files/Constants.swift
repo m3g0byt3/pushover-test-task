@@ -24,10 +24,10 @@ enum Constants {
                                                  height: UIScreen.main.bounds.height / 3.0)
     }
 
-    enum SentScene {
-        static let title = "Sent"
+    enum HistoryScene {
+        static let title = "Messages"
         static let emptyTitle = NSAttributedString(string: "No recent messages")
-        static let emptyText = NSAttributedString(string: "Press \"Compose\" button to sent your first message.")
+        static let emptyText = NSAttributedString(string: "Press \"Compose\" button to send your first message.")
         static let sortKeyPath = #keyPath(HistoryItemModelObject.date)
         static let estimatedRowHeight: CGFloat = 60
     }
