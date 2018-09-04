@@ -31,8 +31,7 @@ struct APIResponse: Codable {
     let devices: [Device]?
 
     var isSuccessful: Bool {
-        guard status == APIResponse.successful else { return false }
-        return true
+        return status == APIResponse.successful
     }
 
     var message: String {
