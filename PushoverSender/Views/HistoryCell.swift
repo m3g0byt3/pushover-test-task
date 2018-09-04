@@ -65,6 +65,7 @@ extension HistoryCell: Configurable {
         statusImage.image = model.isSuccessful ? R.image.success() : R.image.failed()
         dateTimeLabel.text = formatter.string(from: date)
         messageTitleLabel.text = model.message.title
+        messageTitleLabel.isHidden = model.message.title.isEmpty
         messageTextLabel.text = model.message.text
         recipientLabel.text = Constants.HistoryScene.recipientPrefix + model.message.recipient.key
 
