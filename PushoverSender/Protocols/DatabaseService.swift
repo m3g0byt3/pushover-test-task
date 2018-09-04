@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Persistence adapter.
 protocol DatabaseService {
 
     // MARK: - Typealiases
@@ -18,9 +19,18 @@ protocol DatabaseService {
 
     // MARK: - Protocol requirements
 
+    /// Save given object.
+    /// - Parameter object: an object to save.
     func save(_ object: DatabaseItem) throws
 
+    /// Delete given object.
+    /// - Parameter object: an object to delete.
     func delete(_ object: DatabaseItem) throws
 
+    /// Observe database changes in real-time.
+    /// - Parameters:
+    ///     - sorted: Sort option.
+    ///     - predicate: Filtering predicate.
+    ///     - completion: Completion handler.
     func observeChanges(sorted: SortOption?, predicate: NSPredicate?, completion: @escaping Completion)
 }

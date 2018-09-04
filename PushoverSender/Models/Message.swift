@@ -8,11 +8,17 @@
 
 import Foundation
 
+/// Represents message.
 struct Message {
 
     // MARK: - Public properties
 
+    /// The recipient of message.
     let recipient: Recipient
+
+    /// Message title.
     let title: String
+
+    /// Message text.
     let text: String
 }

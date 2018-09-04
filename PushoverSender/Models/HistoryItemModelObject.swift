@@ -9,18 +9,31 @@
 import Foundation
 import RealmSwift
 
+/// Persistence representation of sent message.
 @objcMembers final class HistoryItemModelObject: Object {
 
     // MARK: - Public properties
 
+    /// Message sent date.
     dynamic var date = Date()
+
+    /// Message delivery status.
     dynamic var isSuccessful = true
+
+    /// Message title.
     dynamic var title = ""
+
+    /// Message text.
     dynamic var text = ""
+
+    /// The recipient of message.
     dynamic var recipientKey = ""
 
     // MARK: - Initialization
 
+    /// Convenience initializer from immutable message representation.
+    /// - Parameter model: Immutable message representation
+    /// - Returns: new `HistoryItemModelObject` instance.
     convenience required init(model: HistoryItem) {
         self.init()
         self.date = model.date

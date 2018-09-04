@@ -9,6 +9,7 @@
 import Foundation
 import Result
 
+/// Network adapter.
 protocol NetworkService {
 
     // MARK: - Typealiases
@@ -17,7 +18,15 @@ protocol NetworkService {
 
     // MARK: - Protocol requirements
 
+    /// Sent message.
+    /// - Parameters:
+    ///     - message: Given message.
+    ///     - completion: Completion handler.
     func send(message: Message, completion: @escaping Completion)
 
+    /// verify message's recipient.
+    /// - Parameters:
+    ///     - recipient: Given recipient.
+    ///     - completion: Completion handler.
     func verify(recipient: Recipient, completion: @escaping Completion)
 }

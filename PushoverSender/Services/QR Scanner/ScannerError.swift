@@ -10,8 +10,13 @@ import Foundation
 
 enum ScannerError: Error, LocalizedError {
 
+    /// No access to camera provided.
     case noAccess
+
+    /// Unable to setup camera device (e.g. hardware fault/simulator)
     case noDevice
+
+    /// Unknown error.
     case unknown
 
     // MARK: - LocalizedError protocol conformance

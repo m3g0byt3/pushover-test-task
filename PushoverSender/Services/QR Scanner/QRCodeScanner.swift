@@ -9,10 +9,12 @@
 import Foundation
 import AVFoundation
 
+/// AVFoundation based implementation of `ScanService` protocol.
 final class QRCodeScanner: NSObject, ScanService {
 
     // MARK: - Constants
 
+    /// Identifier for private queue.
     private static let queueIdentifier = "com.m3g0byt3.qrCodeScanner"
 
     // MARK: - Public properties
@@ -21,7 +23,10 @@ final class QRCodeScanner: NSObject, ScanService {
 
     // MARK: - Private properties
 
+    /// Private queue to perform recognition.
     private let queue = DispatchQueue(label: QRCodeScanner.queueIdentifier)
+
+    /// Created `AVCaptureSession` capture session.
     private var captureSession: AVCaptureSession?
 
     // MARK: - Public API
@@ -40,6 +45,7 @@ final class QRCodeScanner: NSObject, ScanService {
 
     // MARK: - Private API
 
+    /// Check camera permissions.
     private func checkStatus() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized: setupCameraDevice()
@@ -48,6 +54,7 @@ final class QRCodeScanner: NSObject, ScanService {
         }
     }
 
+    /// Check camera access.
     private func requestAccess() {
         AVCaptureDevice.requestAccess(for: .video) { [weak self] isAllowed in
             if isAllowed {
@@ -61,6 +68,7 @@ final class QRCodeScanner: NSObject, ScanService {
         }
     }
 
+    /// Setup capture session.
     private func setupCameraDevice() {
         guard
             let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back),

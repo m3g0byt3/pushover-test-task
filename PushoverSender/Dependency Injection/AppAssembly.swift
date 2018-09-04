@@ -11,6 +11,7 @@ import UIKit
 import Moya
 import PKHUD
 
+/// Container with dependencies, provides data to the service locator.
 enum AppAssembly: Assembly {
 
     case main(Configurator<AppAssembly>?)

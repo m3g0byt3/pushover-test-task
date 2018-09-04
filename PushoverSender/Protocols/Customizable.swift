@@ -44,6 +44,8 @@ protocol Customizable {
     func customize()
 }
 
+// MARK: - Customizable protocol conformance
+
 extension UITextField: Customizable {
 
     func customize() {
@@ -60,6 +62,8 @@ extension UITextField: Customizable {
         customize()
     }
 }
+
+// MARK: - Customizable protocol conformance
 
 extension UITextView: Customizable {
 

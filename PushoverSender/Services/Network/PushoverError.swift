@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Wrapper for various PushoverAPI errors.
 struct PushoverError: Error, LocalizedError {
 
     // MARK: - LocalizedError protocol conformance

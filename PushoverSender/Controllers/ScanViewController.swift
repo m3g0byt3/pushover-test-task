@@ -10,10 +10,12 @@ import Foundation
 import UIKit
 import SnapKit
 
+/// QR scanner scene.
 final class ScanViewController: UIViewController, Presentable {
 
     // MARK: - IBOutlets and UI
 
+    /// Layer with live preview from camera.
     private weak var previewLayer: CALayer?
 
     private lazy var cancelButton: UIButton = { this in
@@ -37,7 +39,7 @@ final class ScanViewController: UIViewController, Presentable {
     var scanService: ScanService!
     // swiftlint:disable:previous implicitly_unwrapped_optional
 
-    /// Completion handler called on QR code recognition
+    /// Completion handler called on QR code recognition.
     var completion: Constants.ScanCompletion?
 
     // MARK: - Public properties
@@ -83,12 +85,15 @@ final class ScanViewController: UIViewController, Presentable {
 
     // MARK: - Private API
 
+    /// Perform initial UI setup.
     private func setupUI() {
         view.backgroundColor = Constants.ScanScene.backgroundColor
         view.addSubview(cancelButton)
         view.setNeedsUpdateConstraints()
     }
 
+    /// Handle scanning errors.
+    /// - Parameter error: An error.
     private func handleError(_ error: Error) {
         view.addSubview(errorLabel)
         errorLabel.text = error.localizedDescription
@@ -99,6 +104,8 @@ final class ScanViewController: UIViewController, Presentable {
 
     // MARK: - Control handlers
 
+    /// Control handler for an `UIButton` instance.
+    /// - Parameter sender: `UIButton` instance.
     @objc private func cancelButtonHandler(_ sender: UIButton) {
         dismiss(animated: true)
     }

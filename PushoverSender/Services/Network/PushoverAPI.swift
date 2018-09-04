@@ -9,9 +9,13 @@
 import Foundation
 import Moya
 
+/// Moya target for PushoverAPI.
 enum PushoverAPI: TargetType {
 
+    /// Send message.
     case send(Message)
+
+    /// Verify recipient of message.
     case verify(Recipient)
 
     // MARK: - TargetType protocol conformance

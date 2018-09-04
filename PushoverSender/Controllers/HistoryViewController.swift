@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import EmptyDataSet_Swift
 
+/// Message history scene.
 final class HistoryViewController: UIViewController, Presentable {
 
     // MARK: - IBOutlets and UI
@@ -32,6 +33,7 @@ final class HistoryViewController: UIViewController, Presentable {
 
     // MARK: - Private properties
 
+    /// An array of immutable structs, represents sent messages.
     private var history = [HistoryItem]()
 
     // MARK: - Lifecycle
@@ -44,6 +46,7 @@ final class HistoryViewController: UIViewController, Presentable {
 
     // MARK: - Private API
 
+    /// Perform initial UI setup.
     private func setupUI() {
         navigationItem.rightBarButtonItem = composeButton
         tableView.register(R.nib.historyCell)
@@ -60,6 +63,7 @@ final class HistoryViewController: UIViewController, Presentable {
         }
     }
 
+    /// Setup model observation for UI updates.
     private func setupObservation() {
         let keyPath = Constants.HistoryScene.sortKeyPath
         databaseService.observeChanges(sorted: .descending(keyPath: keyPath),
@@ -72,6 +76,8 @@ final class HistoryViewController: UIViewController, Presentable {
 
     // MARK: - Control handlers
 
+    /// Control handler for an `UIBarButtonItem` instance.
+    /// - Parameter sender: `UIBarButtonItem` instance.
     @objc private func composeButtonHandler(_ sender: UIBarButtonItem) {
         let scene = configurator?.getScene(.compose(sender, configurator))
         guard let viewController = scene?.presentableEntity else { return }

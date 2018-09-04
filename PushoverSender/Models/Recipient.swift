@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Represents recipient of message.
 struct Recipient {
 
     // MARK: - Typealiases
@@ -17,6 +18,9 @@ struct Recipient {
 
     // MARK: - Public properties
 
+    /// Address (API key) of recipient.
     let key: Key
+
+    /// Unique device of recipient.
     let device: Device?
 }

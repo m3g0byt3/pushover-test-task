@@ -10,14 +10,19 @@ import Foundation
 import Moya
 import Result
 
+/// Adapter for `PushoverAPI` Moya target.
 final class PushoverNetworkService: NetworkService {
 
     // MARK: - Private properties
 
+    /// Moya provider.
     private let provider: MoyaProvider<PushoverAPI>
 
     // MARK: - Initialization
 
+    /// Init with given Moya provider.
+    /// - Parameter provider: Moya provider.
+    /// - Returns: New `PushoverNetworkService` instance.
     init(provider: MoyaProvider<PushoverAPI>) {
         self.provider = provider
     }
@@ -36,6 +41,9 @@ final class PushoverNetworkService: NetworkService {
 
     // MARK: - Private API
 
+    /// Create completion closure for Moya provider.
+    /// - Parameter completion: completion passed to the adapter.
+    /// - Returns: New Moya provider completion closure.
     private func completionFactory<T: Codable>(
         completion: @escaping (Result<T, AnyError>) -> Void
     ) -> Moya.Completion {

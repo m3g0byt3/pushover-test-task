@@ -22,6 +22,7 @@ final class MessageTextView: UITextView, Dismissable {
         }
     }
 
+    /// Placeholder text.
     @IBInspectable
     var placeholder: String? {
         get {
@@ -32,6 +33,7 @@ final class MessageTextView: UITextView, Dismissable {
         }
     }
 
+    /// An array of `UIBarButtonItem` items in `inputAccessoryView`.
     var inputAccessoryItems: [UIBarButtonItem] {
         get {
             return _toolbar?.items ?? []
@@ -44,7 +46,10 @@ final class MessageTextView: UITextView, Dismissable {
 
     // MARK: - Private properties
 
+    /// Placeholder label.
     private weak var _placeholder: UILabel?
+
+    /// Custom `inputAccessoryView`.
     private weak var _toolbar: UIToolbar? {
         return inputAccessoryView as? UIToolbar
     }
@@ -88,6 +93,7 @@ final class MessageTextView: UITextView, Dismissable {
 
     // MARK: - Private API
 
+    /// Perform initial UI setup.
     private func setupUI() {
         let placeholder = UILabel(frame: .zero)
 
@@ -101,6 +107,7 @@ final class MessageTextView: UITextView, Dismissable {
         layer.borderColor = Constants.Interface.borderColor.cgColor
     }
 
+    /// Subscribe to `UITextViewTextDidChange` notifications.
     private func setupNotification() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textDidChange),
@@ -108,6 +115,7 @@ final class MessageTextView: UITextView, Dismissable {
                                                object: nil)
     }
 
+    /// Handle `UITextViewTextDidChange` notifications.
     @objc private func textDidChange() {
         guard let placeholder = _placeholder else { return }
         let isHidden = !text.isEmpty

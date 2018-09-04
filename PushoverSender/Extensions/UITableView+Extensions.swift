@@ -11,6 +11,10 @@ import UIKit
 
 extension UITableView {
 
+    /// Convenience method to apply changes from a `Diff` instance.
+    /// - Parameters:
+    ///     - diff: Given `Diff` instance.
+    ///     - animation: Row animation (default value = `.automatic`)
     func apply(diff: Diff, with animation: UITableViewRowAnimation = .automatic) {
         switch diff {
 

@@ -8,8 +8,12 @@
 
 import Foundation
 
+/// Represents changes in collection.
 enum Diff {
 
+    /// Initial state.
     case initial
+
+    /// Collection is updated.
     case updates(deletions: [IndexPath], insertions: [IndexPath], modifications: [IndexPath])
 }

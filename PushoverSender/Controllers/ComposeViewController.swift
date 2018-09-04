@@ -6,11 +6,12 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-// TODO: Disable send button when no valid input provided
-
 import Foundation
 import UIKit
 
+// TODO: Disable send button when no valid input provided
+
+/// Message composing scene.
 final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - IBOutlets and UI
@@ -62,6 +63,7 @@ final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - Private properties
 
+    /// Mutable struct, wrapper for the composed message.
     private var message: Message? {
         guard
             let key = recipientTextField.text,
@@ -83,6 +85,7 @@ final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - Private API
 
+    /// Perform initial UI setup.
     private func setupUI() {
         edgesForExtendedLayout = []
         navigationItem.rightBarButtonItem = sendButton
@@ -90,6 +93,8 @@ final class ComposeViewController: UIViewController, Presentable {
         messageTextView.inputAccessoryItems.insert(scanButton, at: 0)
     }
 
+    /// Perform network request using `NetworkService` dependency.
+    /// - Parameter message: Wrapper for the composed message.
     private func performNetworkRequest(for message: Message?) {
         guard let message = message else { return }
         networkService.send(message: message) { [weak self] result in
@@ -115,6 +120,7 @@ final class ComposeViewController: UIViewController, Presentable {
         }
     }
 
+    /// Show QR scanner UI.
     private func showScanner() {
         let completion: Constants.ScanCompletion = { [weak self] value in
             self?.messageTextView.text = value
@@ -127,6 +133,8 @@ final class ComposeViewController: UIViewController, Presentable {
 
     // MARK: - Control handlers
 
+    /// Control handler for an `UIBarButtonItem` instance.
+    /// - Parameter sender: `UIBarButtonItem` instance.
     @objc private func barButtonHandler(_ sender: UIBarButtonItem) {
         switch sender {
         case sendButton: performNetworkRequest(for: message)
@@ -151,6 +159,7 @@ extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
 extension ComposeViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Switch to the next responder.
         if let index = firstResponders.index(of: textField) {
             firstResponders[safeAfter: index]?.becomeFirstResponder()
         }

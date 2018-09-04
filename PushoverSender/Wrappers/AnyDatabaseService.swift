@@ -22,6 +22,9 @@ final class AnyDatabaseService<DatabaseItemType> {
 
     // MARK: - Initialization
 
+    /// Init with given `DatabaseService` instance.
+    /// - Parameter service: A `DatabaseService` instance.
+    /// - Returns: New `AnyDatabaseService` instance.
     init<WrappedService: DatabaseService>(
         _ service: WrappedService
     ) where WrappedService.DatabaseItem == DatabaseItemType {

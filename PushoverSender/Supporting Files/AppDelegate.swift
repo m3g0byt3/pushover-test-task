@@ -13,7 +13,11 @@ import UIKit
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
+    /// Service locator
     var configurator: Configurator<AppAssembly>?
+
+    // MARK: - UIApplicationDelegate protocol conformance
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
@@ -22,7 +26,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // Perform initial DI
+    // MARK: - Private API
+
+    /// Perform initial DI.
     private func configure() {
         window = UIWindow(frame: UIScreen.main.bounds)
         configurator = Configurator<AppAssembly>()
