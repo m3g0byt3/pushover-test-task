@@ -80,23 +80,27 @@ final class QRCodeScanner: NSObject, ScanService {
             return
         }
 
-        let session = AVCaptureSession()
-        session.addInput(input)
+        captureSession = AVCaptureSession()
+        captureSession?.addInput(input)
 
         let output = AVCaptureMetadataOutput()
-        session.addOutput(output)
+        captureSession?.addOutput(output)
 
         output.setMetadataObjectsDelegate(self, queue: queue)
         output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
 
-        let preview = AVCaptureVideoPreviewLayer(session: session)
-        preview.videoGravity = .resizeAspectFill
+        if let session = captureSession {
+            let preview = AVCaptureVideoPreviewLayer(session: session)
+            preview.videoGravity = .resizeAspectFill
 
-        DispatchQueue.main.async {
-            self.delegate?.scanner(self, didSetupPreview: preview)
+            DispatchQueue.main.async {
+                self.delegate?.scanner(self, didSetupPreview: preview)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.delegate?.scanner(self, didFailWith: .noDevice)
+            }
         }
-
-        captureSession = session
     }
 
     deinit {
