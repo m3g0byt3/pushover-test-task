@@ -40,7 +40,7 @@ final class HistoryCell: UITableViewCell {
 
     // MARK: - Public API
 
-    private func dateStyle(for date: Date) -> Style {
+    private static func dateStyle(for date: Date) -> Style {
         if Date().timeIntervalSince(date) < HistoryCell.oneDay {
             return (time: .short, date: .none)
         }
@@ -56,7 +56,7 @@ extension HistoryCell: Configurable {
 
     func configure(with model: Model) -> Self {
         let date = model.date
-        let format = dateStyle(for: date)
+        let format = HistoryCell.dateStyle(for: date)
         let formatter = HistoryCell.formatter
 
         formatter.dateStyle = format.date
